@@ -95,7 +95,7 @@ class ServidorController extends ApiCoreController
             SELECT
                 s.cod_servidor as servidor_id,
                 p.nome as nome,
-                f.cpf as cpf,
+                formata_cpf(f.cpf) as cpf,
                 s.ativo as ativo,
                 greatest(p.data_rev::timestamp(0), s.updated_at) as updated_at
             FROM pmieducar.servidor s
