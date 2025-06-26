@@ -95,10 +95,12 @@ class ServidorController extends ApiCoreController
             SELECT
                 s.cod_servidor as servidor_id,
                 p.nome as nome,
+                f.cpf as cpf,
                 s.ativo as ativo,
                 greatest(p.data_rev::timestamp(0), s.updated_at) as updated_at
             FROM pmieducar.servidor s
             INNER JOIN cadastro.pessoa p ON s.cod_servidor = p.idpes
+            INNER JOIN cadastro.fisica f ON p.idpes = f.idpes
             WHERE s.ref_cod_instituicao = $1
             {$where}
             order by updated_at
