@@ -108,7 +108,7 @@ class ServidorController extends ApiCoreController
 
         $servidores = $this->fetchPreparedQuery($sql, $params);
 
-        $attrs = ['servidor_id', 'nome', 'ativo', 'updated_at'];
+        $attrs = ['servidor_id', 'nome', 'cpf', 'ativo', 'updated_at'];
 
         $servidores = Portabilis_Array_Utils::filterSet($servidores, $attrs);
 
