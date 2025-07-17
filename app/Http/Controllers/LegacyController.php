@@ -134,7 +134,7 @@ class LegacyController extends Controller
             //
             // http://php.net/manual/en/class.throwable.php
         } catch (Throwable $throwable) {
-            // Com as novas versões do Laravel não é mais necessário tratamento
+            throw $throwable;
         }
 
         throw $exception;
