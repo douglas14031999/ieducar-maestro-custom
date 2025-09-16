@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\DeficiencyType;
-use App\Models\Educacenso\Registro30;
 use App\Models\Individual;
 use App\Models\LegacyDeficiency;
 use App\Models\LegacyIndividual;
@@ -368,6 +367,22 @@ class AlunoController extends ApiCoreController
     protected function loadNomeAluno($alunoId)
     {
         $sql = 'select nome from cadastro.pessoa, pmieducar.aluno where idpes = ref_idpes and cod_aluno = $1';
+        $nome = $this->fetchPreparedQuery($sql, $alunoId, false, 'first-field');
+
+        return $this->toUtf8($nome, ['transform' => true]);
+    }
+
+    protected function loadNomeSocialAluno($alunoId)
+    {
+        $sql = 'select nome_social from cadastro.fisica, pmieducar.aluno where idpes = ref_idpes and cod_aluno = $1';
+        $nome = $this->fetchPreparedQuery($sql, $alunoId, false, 'first-field');
+
+        return $this->toUtf8($nome, ['transform' => true]);
+    }
+
+    protected function loadDataNascimentoAluno($alunoId)
+    {
+        $sql = 'select COALESCE(data_nasc, CURRENT_DATE) from cadastro.fisica, pmieducar.aluno where idpes = ref_idpes and cod_aluno = $1';
         $nome = $this->fetchPreparedQuery($sql, $alunoId, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
@@ -1190,6 +1205,8 @@ class AlunoController extends ApiCoreController
             $aluno = Portabilis_Array_Utils::filter($alunoDetalhe, $attrs);
 
             $aluno['nome'] = $this->loadNomeAluno($id);
+            $aluno['nome_social'] = $this->loadNomeSocialAluno($id);
+            $aluno['data_nascimento'] = $this->loadDataNascimentoAluno($id);
             $aluno['tipo_transporte'] = $this->loadTransporte($aluno['tipo_transporte']);
             $aluno['tipo_responsavel'] = $this->tipoResponsavel($aluno);
             $aluno['aluno_inep_id'] = $this->loadAlunoInepId($id);
@@ -2234,9 +2251,6 @@ class AlunoController extends ApiCoreController
     {
         // Pega os códigos das deficiências do censo
         $deficiencias = $this->replaceByEducacensoDeficiencies(array_filter(explode(',', $this->getRequest()->deficiencias)));
-
-        // Remove "Altas Habilidades"
-        $deficiencias = Registro30::removeAltasHabilidadesArrayDeficiencias($deficiencias);
 
         return [
             'result' => !empty($deficiencias),
