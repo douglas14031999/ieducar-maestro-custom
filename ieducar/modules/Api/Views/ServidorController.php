@@ -271,6 +271,9 @@ class ServidorController extends ApiCoreController
     protected function getDadosServidor()
     {
         $servidor = $this->getRequest()->servidor_id;
+        $cpf = $this->getRequest()->cpf;
+
+
 
         $sql = 'SELECT
                     s.cod_servidor as servidor_id,
@@ -283,10 +286,23 @@ class ServidorController extends ApiCoreController
                 FROM pmieducar.servidor s
                 JOIN cadastro.pessoa p ON p.idpes = s.cod_servidor
                 JOIN cadastro.fisica f ON p.idpes = f.idpes
-                LEFT JOIN modules.educacenso_cod_docente ON educacenso_cod_docente.cod_servidor = s.cod_servidor
-                WHERE s.cod_servidor = $1';
+                LEFT JOIN modules.educacenso_cod_docente ON educacenso_cod_docente.cod_servidor = s.cod_servidor';
 
-        $result = $this->fetchPreparedQuery($sql, [$servidor]);
+        $param = null;
+
+        if ($servidor) {
+            $sql .= ' WHERE s.cod_servidor = $1';
+            $param = $servidor;
+        } elseif ($cpf) {
+            $param = (int) str_replace(['.', '-'], '', $cpf);
+            $sql .= ' WHERE f.cpf = $1';
+        } else {
+            $this->messenger->append('É necessário informar o servidor_id ou o cpf do servidor para consultar seus dados.');
+
+            return false;
+        }
+
+        $result = $this->fetchPreparedQuery($sql, [$param]);
 
         $attrs = ['servidor_id', 'nome', 'cpf', 'ativo', 'updated_at', 'inep', 'email'];
 
