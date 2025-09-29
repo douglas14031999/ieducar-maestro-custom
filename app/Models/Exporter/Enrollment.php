@@ -117,6 +117,11 @@ class Enrollment extends Model
                 'mother.monthly_income' => 'Renda Mensal da mãe',
                 'mother.gender' => 'Gênero da mãe',
                 'mother.phone' => 'Telefones da mãe',
+                'mother.religion' => 'Religião da mãe',
+                'mother.race' => 'Raça da mãe',
+                'mother.birthplace' => 'Naturalidade da mãe',
+                'mother.marital_status' => 'Estado Civil da mãe',
+                'mother.person_schooling_degree' => 'Escolaridade da mãe',
             ],
             'Pai' => [
                 'father.id' => 'ID do pai',
@@ -135,6 +140,11 @@ class Enrollment extends Model
                 'father.monthly_income' => 'Renda Mensal do pai',
                 'father.gender' => 'Gênero do pai',
                 'father.phone' => 'Telefones do pai',
+                'father.religion' => 'Religião do pai',
+                'father.race' => 'Raça do pai',
+                'father.birthplace' => 'Naturalidade do pai',
+                'father.marital_status' => 'Estado Civil do pai',
+                'father.person_schooling_degree' => 'Escolaridade do pai',
             ],
             'Responsável' => [
                 'guardian.id' => 'ID do responsável',
@@ -153,6 +163,11 @@ class Enrollment extends Model
                 'guardian.monthly_income' => 'Renda Mensal do responsável',
                 'guardian.gender' => 'Gênero do responsável',
                 'guardian.phone' => 'Telefones do responsável',
+                'guardian.religion' => 'Religião do responsável',
+                'guardian.race' => 'Raça do responsável',
+                'guardian.birthplace' => 'Naturalidade do responsável',
+                'guardian.marital_status' => 'Estado Civil do responsável',
+                'guardian.person_schooling_degree' => 'Escolaridade do responsável',
             ],
         ];
     }
