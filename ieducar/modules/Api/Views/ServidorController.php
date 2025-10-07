@@ -273,8 +273,6 @@ class ServidorController extends ApiCoreController
         $servidor = $this->getRequest()->servidor_id;
         $cpf = $this->getRequest()->cpf;
 
-
-
         $sql = 'SELECT
                     s.cod_servidor as servidor_id,
                     formata_cpf(f.cpf) as cpf,
