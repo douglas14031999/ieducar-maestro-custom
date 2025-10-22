@@ -79,8 +79,9 @@ ARG HOST_GID
 # Criação de grupo e usuário com UID e GID iguais ao do host
 # Isso garante que arquivos criados dentro do container tenham
 # as mesmas permissões do usuário do host (evita problemas com volumes)
-RUN addgroup -g ${HOST_GID} ieducar && \
-    adduser -u ${HOST_UID} -G ieducar -s /bin/sh -D ieducar
+RUN addgroup -g ${HOST_GID} ieducar 2>/dev/null || addgroup ieducar && \
+    adduser -u ${HOST_UID} -G ieducar -s /bin/sh -D ieducar 2>/dev/null || \
+    adduser -G ieducar -s /bin/sh -D ieducar
 
 # Define o usuário padrão do container para evitar execução como root
 USER ieducar
