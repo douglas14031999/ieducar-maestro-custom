@@ -222,6 +222,7 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
     {
         $codMatricula = $this->getOption('matricula');
         $codTurma = $this->getOption('turmaId');
+        Cache::delete('ie_finder_matricula_' . $codMatricula . '_' . $codTurma);
         $matricula = App_Model_IedFinder::getMatricula($codMatricula, $codTurma);
         $etapas = App_Model_IedFinder::getQuantidadeDeModulosMatricula($codMatricula, $matricula);
         $maiorEtapaUtilizada = $etapas;
