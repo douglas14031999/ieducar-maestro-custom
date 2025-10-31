@@ -21,8 +21,10 @@ use App\Listeners\NotificationWhenResetPassword;
 use App\Listeners\RegistrationCopyListener;
 use App\Listeners\ReportIssuedListener;
 use App\Listeners\TransferNotificationListener;
+use App\Models\LegacyEvaluationRuleGradeYear;
 use App\Models\LegacyRegistrationDisciplinaryOccurrenceType;
 use App\Models\SchoolManager;
+use App\Observers\LegacyEvaluationRuleGradeYearObserver;
 use App\Observers\LegacyRegistrationDisciplinaryOccurrenceTypeObserver;
 use App\Observers\SchoolManagerObserver;
 use Illuminate\Auth\Events\Authenticated;
@@ -92,6 +94,7 @@ class EventServiceProvider extends ServiceProvider
 
         SchoolManager::observe(SchoolManagerObserver::class);
         LegacyRegistrationDisciplinaryOccurrenceType::observe(LegacyRegistrationDisciplinaryOccurrenceTypeObserver::class);
+        LegacyEvaluationRuleGradeYear::observe(LegacyEvaluationRuleGradeYearObserver::class);
     }
 
     /**

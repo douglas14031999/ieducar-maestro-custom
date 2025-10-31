@@ -769,7 +769,7 @@ class App_Model_IedFinder extends CoreExt_Entity
             $codTurma = 0;
         }
 
-        $matricula = Cache::remember('ie_finder_matricula_' . $codMatricula . '_' .$codTurma, now()->addMinutes(5), function () use ($codMatricula, $codTurma) {
+        $matricula = Cache::tags(['evaliation-rule'])->remember('ie_finder_matricula_' . $codMatricula . '_' . $codTurma, now()->addMinutes(5), function () use ($codMatricula, $codTurma) {
             $sql = '
             SELECT
                 m.cod_matricula,
