@@ -770,100 +770,100 @@ class App_Model_IedFinder extends CoreExt_Entity
         }
 
         $sql = '
-        SELECT
-            m.cod_matricula,
-            m.ref_ref_cod_escola,
-            m.ref_ref_cod_serie,
-            m.ref_usuario_exc,
-            m.ref_usuario_cad,
-            m.ref_cod_aluno,
-            m.aprovado,
-            m.data_cadastro,
-            m.data_exclusao,
-            m.ativo,
-            m.ano,
-            m.ultima_matricula,
-            m.modulo,
-            formando,
-            descricao_reclassificacao,
-            matricula_reclassificacao,
-            m.ref_cod_curso,
-            m.matricula_transferencia,
-            m.semestre,
-            m.data_matricula,
-            m.data_cancel,
-            m.ref_cod_abandono_tipo,
-            m.turno_pre_matricula,
-            m.dependencia,
-            data_saida_escola,
-            mt.turno_id,
-            p.nome,
-            (p.nome) AS nome_upper,
-            e.ref_cod_instituicao,
-            mt.ref_cod_turma,
-            t.nm_turma,
-            c.carga_horaria AS curso_carga_horaria,
-            c.hora_falta AS curso_hora_falta,
-            s.carga_horaria AS serie_carga_horaria,
-            s.dias_letivos AS serie_dias_letivos,
-            c.nm_curso AS curso_nome,
-            c.padrao_ano_escolar,
-            s.nm_serie AS serie_nome,
-            s.concluinte AS serie_concluinte,
-            rasa.regra_avaliacao_diferenciada_id as serie_regra_avaliacao_diferenciada_id,
-            rasa.regra_avaliacao_id as serie_regra_avaliacao_id,
-            e.utiliza_regra_diferenciada as escola_utiliza_regra_diferenciada,
-            mt.data_enturmacao
-        FROM pmieducar.matricula m
-        JOIN pmieducar.aluno a
-        ON a.cod_aluno = m.ref_cod_aluno
-        JOIN cadastro.pessoa p
-        ON p.idpes = a.ref_idpes
-        JOIN pmieducar.escola e
-        ON m.ref_ref_cod_escola = e.cod_escola
-        JOIN pmieducar.instituicao
-        ON instituicao.cod_instituicao = e.ref_cod_instituicao
-        JOIN pmieducar.matricula_turma mt
-        ON mt.ref_cod_matricula = m.cod_matricula
-        JOIN pmieducar.turma t
-        ON t.cod_turma = mt.ref_cod_turma
-        JOIN pmieducar.curso c
-        ON m.ref_cod_curso = c.cod_curso
-        JOIN pmieducar.serie s
-        ON m.ref_ref_cod_serie = s.cod_serie
-        LEFT JOIN modules.regra_avaliacao_serie_ano rasa
-        ON rasa.ano_letivo = m.ano
-        AND rasa.serie_id = s.cod_serie
-        WHERE m.cod_matricula = $1
-        AND CASE WHEN $2 = 0 THEN true ELSE t.cod_turma = $2 END
-        AND a.ativo = 1
-        AND t.ativo = 1
-        AND
-        (
-            mt.ativo = 1
-            OR
+            SELECT
+                m.cod_matricula,
+                m.ref_ref_cod_escola,
+                m.ref_ref_cod_serie,
+                m.ref_usuario_exc,
+                m.ref_usuario_cad,
+                m.ref_cod_aluno,
+                m.aprovado,
+                m.data_cadastro,
+                m.data_exclusao,
+                m.ativo,
+                m.ano,
+                m.ultima_matricula,
+                m.modulo,
+                formando,
+                descricao_reclassificacao,
+                matricula_reclassificacao,
+                m.ref_cod_curso,
+                m.matricula_transferencia,
+                m.semestre,
+                m.data_matricula,
+                m.data_cancel,
+                m.ref_cod_abandono_tipo,
+                m.turno_pre_matricula,
+                m.dependencia,
+                data_saida_escola,
+                mt.turno_id,
+                p.nome,
+                (p.nome) AS nome_upper,
+                e.ref_cod_instituicao,
+                mt.ref_cod_turma,
+                t.nm_turma,
+                c.carga_horaria AS curso_carga_horaria,
+                c.hora_falta AS curso_hora_falta,
+                s.carga_horaria AS serie_carga_horaria,
+                s.dias_letivos AS serie_dias_letivos,
+                c.nm_curso AS curso_nome,
+                c.padrao_ano_escolar,
+                s.nm_serie AS serie_nome,
+                s.concluinte AS serie_concluinte,
+                rasa.regra_avaliacao_diferenciada_id as serie_regra_avaliacao_diferenciada_id,
+                rasa.regra_avaliacao_id as serie_regra_avaliacao_id,
+                e.utiliza_regra_diferenciada as escola_utiliza_regra_diferenciada,
+                mt.data_enturmacao
+            FROM pmieducar.matricula m
+            JOIN pmieducar.aluno a
+            ON a.cod_aluno = m.ref_cod_aluno
+            JOIN cadastro.pessoa p
+            ON p.idpes = a.ref_idpes
+            JOIN pmieducar.escola e
+            ON m.ref_ref_cod_escola = e.cod_escola
+            JOIN pmieducar.instituicao
+            ON instituicao.cod_instituicao = e.ref_cod_instituicao
+            JOIN pmieducar.matricula_turma mt
+            ON mt.ref_cod_matricula = m.cod_matricula
+            JOIN pmieducar.turma t
+            ON t.cod_turma = mt.ref_cod_turma
+            JOIN pmieducar.curso c
+            ON m.ref_cod_curso = c.cod_curso
+            JOIN pmieducar.serie s
+            ON m.ref_ref_cod_serie = s.cod_serie
+            LEFT JOIN modules.regra_avaliacao_serie_ano rasa
+            ON rasa.ano_letivo = m.ano
+            AND rasa.serie_id = s.cod_serie
+            WHERE m.cod_matricula = $1
+            AND CASE WHEN $2 = 0 THEN true ELSE t.cod_turma = $2 END
+            AND a.ativo = 1
+            AND t.ativo = 1
+            AND
             (
-                CASE
-                    WHEN instituicao.data_base_remanejamento IS NOT NULL
-                        THEN mt.data_exclusao::date > instituicao.data_base_remanejamento
-                    ELSE true
-                END
-                AND (
-                    mt.transferido
-                    OR mt.remanejado
-                    OR mt.reclassificado
-                    OR mt.abandono
-                    OR mt.falecido
+                mt.ativo = 1
+                OR
+                (
+                    CASE
+                        WHEN instituicao.data_base_remanejamento IS NOT NULL
+                            THEN mt.data_exclusao::date > instituicao.data_base_remanejamento
+                        ELSE true
+                    END
+                    AND (
+                        mt.transferido
+                        OR mt.remanejado
+                        OR mt.reclassificado
+                        OR mt.abandono
+                        OR mt.falecido
+                    )
                 )
             )
-        )
-        ORDER BY
-            mt.ativo DESC,
-            mt.sequencial DESC
-        LIMIT 1
+            ORDER BY
+                mt.ativo DESC,
+                mt.sequencial DESC
+            LIMIT 1
 ';
 
-        return Portabilis_Utils_Database::selectRow($sql, ['params' => [$codMatricula, $codTurma]]);
+        $matricula = Portabilis_Utils_Database::selectRow($sql, ['params' => [$codMatricula, $codTurma]]);
 
         if (!$matricula) {
             throw new StudentNotEnrolledInSchoolClass($codMatricula);
