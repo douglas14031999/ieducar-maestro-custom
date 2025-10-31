@@ -224,7 +224,7 @@ class App_Model_IedFinder extends CoreExt_Entity
 
         if ($instituicao === false) {
             throw new App_Model_Exception(
-                sprintf('Série com o código "%d" não existe.', $codInstituicao)
+                sprintf('Instituição com o código "%d" não existe.', $codInstituicao)
             );
         }
 
@@ -1141,7 +1141,7 @@ class App_Model_IedFinder extends CoreExt_Entity
         $codEscola,
         $disciplina
     ) {
-        return Cache::remember('ie_finder_etapa_dispensada_' . $codMatricula . '_' . $codSerie . '_' . $codEscola . '_' . $disciplina, now()->addMinutes(30), function () use ($codMatricula, $codSerie, $codEscola, $disciplina) {
+        return Cache::remember('ie_finder_etapa_dispensada_' . $codMatricula . '_' . $codSerie . '_' . $codEscola . '_' . $disciplina, now()->addMinute(), function () use ($codMatricula, $codSerie, $codEscola, $disciplina) {
             $dispensas = self::addClassToStorage(
                 'clsPmieducarDispensaDisciplina',
                 null,
