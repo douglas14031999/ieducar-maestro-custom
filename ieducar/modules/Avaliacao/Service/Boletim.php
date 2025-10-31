@@ -3366,7 +3366,7 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
     {
         $id = $this->getRegra()->get('id');
 
-        return Cache::remember('evaluation_rule_' . $id, now()->addMinute(), function () use ($id) {
+        return Cache::remember('evaluation_rule_' . $id, now()->addMinutes(5), function () use ($id) {
             return LegacyEvaluationRule::findOrFail(
                 $id
             );
