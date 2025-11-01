@@ -10,10 +10,22 @@ use PHPUnit\Framework\TestCase;
 
 class RegistrationServiceNextEnrollmentsDateTest extends TestCase
 {
+    private const TARGET_DATE = '2024-03-01';
+    private const EARLIER_DATE = '2024-02-01';
+
     private function makeServiceWithoutConstructor(): RegistrationService
     {
         $ref = new \ReflectionClass(RegistrationService::class);
-        return $ref->newInstanceWithoutConstructor();
+        /** @var RegistrationService $service */
+        $service = $ref->newInstanceWithoutConstructor();
+
+        if ($ref->hasProperty('user')) {
+            $prop = $ref->getProperty('user');
+            $prop->setAccessible(true);
+            $prop->setValue($service, null); // ou um stub de User, se necessário
+        }
+
+        return $service;
     }
 
     private function callUpdateNext(EloquentCollection $coll, string $date): void
@@ -26,88 +38,97 @@ class RegistrationServiceNextEnrollmentsDateTest extends TestCase
 
     private static function asYmd($value): ?string
     {
-        if ($value === null) {
-            return null;
-        }
+        $result = null;
+
         if ($value instanceof DateTime) {
-            return $value->format('Y-m-d');
+            $result = $value->format('Y-m-d');
+        } elseif (is_string($value)) {
+            $result = (new DateTime($value))->format('Y-m-d');
         }
-        if (is_string($value)) {
-            return (new DateTime($value))->format('Y-m-d');
-        }
-        return null;
+
+        return $result;
     }
 
-    /**
-     * CT1: Entradas válidas
-     * Entrada: enturmacao=2024-02-01, exclusao=2024-02-01, date=2024-03-01
-     * Saída esperada: enturmacao=2024-03-01, exclusao=2024-03-01
-     */
     public function test_ct1_entradas_validas(): void
     {
-        $enrollment = new EnrollmentStub('2024-02-01', '2024-02-01');
+        $enrollment = new EnrollmentStub(self::EARLIER_DATE, self::EARLIER_DATE);
 
-        $this->callUpdateNext(new EloquentCollection([$enrollment]), '2024-03-01');
+        $this->callUpdateNext(new EloquentCollection([$enrollment]), self::TARGET_DATE);
 
-        $this->assertSame('2024-03-01', self::asYmd($enrollment->data_enturmacao));
-        $this->assertSame('2024-03-01', self::asYmd($enrollment->data_exclusao));
+        $this->assertSame(self::TARGET_DATE, self::asYmd($enrollment->data_enturmacao));
+        $this->assertSame(self::TARGET_DATE, self::asYmd($enrollment->data_exclusao));
     }
 
-    /**
-     * CT2: Enturmação anterior e exclusão nula 
-     * Entrada: enturmacao=2024-02-01, exclusao=null, date=2024-03-01
-     * Saída esperada: enturmacao=2024-03-01, exclusao permanece null
-     */
     public function test_ct2_enturmacao_anterior_exc_nula(): void
     {
-        $enrollment = new EnrollmentStub('2024-02-01', null);
+        $enrollment = new EnrollmentStub(self::EARLIER_DATE, null);
 
-        $this->callUpdateNext(new EloquentCollection([$enrollment]), '2024-03-01');
+        $this->callUpdateNext(new EloquentCollection([$enrollment]), self::TARGET_DATE);
 
-        $this->assertSame('2024-03-01', self::asYmd($enrollment->data_enturmacao));
+        $this->assertSame(self::TARGET_DATE, self::asYmd($enrollment->data_enturmacao));
         $this->assertNull(self::asYmd($enrollment->data_exclusao));
     }
 
-    /**
-     * CT3: Exclusão anterior e enturmação posterior 
-     * Entrada: enturmacao=2024-04-01, exclusao=2024-02-01, date=2024-03-01
-     * Saída esperada: enturmacao permanece 2024-04-01; exclusao=2024-03-01
-     */
     public function test_ct3_exclusao_anterior_enturmacao_posterior(): void
     {
-        $enrollment = new EnrollmentStub('2024-04-01', '2024-02-01');
+        $enrollment = new EnrollmentStub('2024-04-01', self::EARLIER_DATE);
 
-        $this->callUpdateNext(new EloquentCollection([$enrollment]), '2024-03-01');
+        $this->callUpdateNext(new EloquentCollection([$enrollment]), self::TARGET_DATE);
 
-        $this->assertSame('2024-04-01', self::asYmd($enrollment->data_enturmacao)); 
-        $this->assertSame('2024-03-01', self::asYmd($enrollment->data_exclusao));   
+        $this->assertSame('2024-04-01', self::asYmd($enrollment->data_enturmacao));
+        $this->assertSame(self::TARGET_DATE, self::asYmd($enrollment->data_exclusao));
     }
 }
 
 class EnrollmentStub
 {
     /** @var DateTime|null */
-    public $data_enturmacao;
+    public $dataEnturmacao;
 
     /** @var DateTime|null */
-    public $data_exclusao;
+    public $dataExclusao;
 
     public function __construct(?string $enturmacao, ?string $exclusao)
     {
-        $this->data_enturmacao = $enturmacao ? new DateTime($enturmacao) : null;
-        $this->data_exclusao   = $exclusao ? new DateTime($exclusao) : null;
+        $this->dataEnturmacao = $enturmacao ? new DateTime($enturmacao) : null;
+        $this->dataExclusao   = $exclusao ? new DateTime($exclusao) : null;
     }
 
     public function __set(string $name, $value): void
     {
-        if (in_array($name, ['data_enturmacao', 'data_exclusao'], true)) {
-            $this->$name = $value instanceof DateTime ? $value : new DateTime($value);
+        $prop = $this->mapProp($name);
+
+        if (in_array($prop, ['dataEnturmacao', 'dataExclusao'], true)) {
+            $this->$prop = $value === null
+                ? null
+                : ($value instanceof DateTime ? $value : new DateTime($value));
             return;
         }
-        $this->$name = $value;
+
+        $this->$prop = $value;
+    }
+
+    public function __get(string $name)
+    {
+        $prop = $this->mapProp($name);
+        return $this->$prop ?? null;
+    }
+
+    private function mapProp(string $name): string
+    {
+        return match ($name) {
+            'data_enturmacao' => 'dataEnturmacao',
+            'data_exclusao'   => 'dataExclusao',
+            'dataEnturmacao', 'dataExclusao' => $name,
+            default => $name,
+        };
     }
 
     public function save(): void
     {
+        // Intencionalmente vazio no stub de teste:
+        // este método só existe para satisfazer a chamada $enrollment->save()
+        // feita por App\Services\RegistrationService::updateNextEnrollmentsRegistrationDate.
+        // Nos testes, validamos apenas as alterações em memória (sem I/O de banco).
     }
 }
