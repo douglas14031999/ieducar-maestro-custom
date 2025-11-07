@@ -138,6 +138,13 @@ return new class extends clsCadastro
 
             return false;
         }
+      
+        if (!empty($this->email) && filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
+            $this->mensagem = 'O campo E-mail deve conter um endereço de e-mail válido.';
+            $this->busca_empresa = true;
+
+            return false;
+        }
 
         if (!empty($this->cnpj) && validaCNPJ(cnpj: $this->cnpj) === false) {
             $this->mensagem = 'CNPJ inválido';
@@ -268,6 +275,13 @@ return new class extends clsCadastro
     {
         if (!$this->validaFormatoUrl(url: $this->url)) {
             $this->mensagem = 'O campo Site deve conter uma URL válida (ex: https://www.exemplo.com.br).';
+            $this->busca_empresa = true;
+
+            return false;
+        }
+      
+        if (!empty($this->email) && filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
+            $this->mensagem = 'O campo E-mail deve conter um endereço de e-mail válido.';
             $this->busca_empresa = true;
 
             return false;
