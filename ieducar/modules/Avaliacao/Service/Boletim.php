@@ -3097,8 +3097,8 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
 
         try {
             $this->save();
-        } catch (Exception $e) {
-            error_log('Excessao ignorada ao zerar nota a ser removida: ' . $e->getMessage());
+        } catch (Exception) {
+            // Excessao ignorada ao deletar a nota
         }
 
         return $this;
