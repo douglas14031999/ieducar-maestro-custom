@@ -138,7 +138,7 @@ return new class extends clsCadastro
 
             return false;
         }
-      
+
         if (!empty($this->email) && filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
             $this->mensagem = 'O campo E-mail deve conter um endereço de e-mail válido.';
             $this->busca_empresa = true;
@@ -279,7 +279,7 @@ return new class extends clsCadastro
 
             return false;
         }
-      
+
         if (!empty($this->email) && filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
             $this->mensagem = 'O campo E-mail deve conter um endereço de e-mail válido.';
             $this->busca_empresa = true;
