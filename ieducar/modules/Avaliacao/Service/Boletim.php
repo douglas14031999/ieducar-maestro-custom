@@ -2345,7 +2345,9 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
         }
 
         if ($this->usaTabelaArredondamentoConceitual($componenteId)) {
-            return $this->getRegraAvaliacaoTabelaArredondamentoConceitual()->round($media, 2);
+            $qtdeEtapas = $this->getOption('etapas');
+
+            return $this->getRegraAvaliacaoTabelaArredondamentoConceitual()->round($media, 2, 1, $qtdeEtapas);
         }
 
         // Reduz a média sem arredondar para quantidade de casas decimais permitidas
