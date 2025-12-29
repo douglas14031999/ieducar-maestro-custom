@@ -2353,7 +2353,10 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
         // Reduz a média sem arredondar para quantidade de casas decimais permitidas
         $media = bcdiv($media, 1, $this->getRegraAvaliacaoQtdCasasDecimais());
 
-        return $this->getRegraAvaliacaoTabelaArredondamento()->round($media, 2, $this->getRegraAvaliacaoQtdCasasDecimais());
+        // Passa qtdeEtapas para tabelas conceituais poderem normalizar a média
+        $qtdeEtapas = $this->getOption('etapas');
+
+        return $this->getRegraAvaliacaoTabelaArredondamento()->round($media, 2, $this->getRegraAvaliacaoQtdCasasDecimais(), $qtdeEtapas);
     }
 
     /**
