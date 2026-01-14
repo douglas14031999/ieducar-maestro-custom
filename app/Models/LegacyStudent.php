@@ -223,7 +223,7 @@ class LegacyStudent extends LegacyModel
 
     private function joinGuardionNames(): ?string
     {
-        $join = $this->individual->mother->name . ', ' . $this->individual->father->name;
+        $join = $this->individual->mother?->name . ', ' . $this->individual->father?->name;
 
         return strlen($join) < 3 ? null : $join;
     }
