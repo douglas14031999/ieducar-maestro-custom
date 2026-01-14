@@ -2345,13 +2345,18 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
         }
 
         if ($this->usaTabelaArredondamentoConceitual($componenteId)) {
-            return $this->getRegraAvaliacaoTabelaArredondamentoConceitual()->round($media, 2);
+            $qtdeEtapas = $this->getOption('etapas');
+
+            return $this->getRegraAvaliacaoTabelaArredondamentoConceitual()->round($media, 2, 1, $qtdeEtapas);
         }
 
         // Reduz a média sem arredondar para quantidade de casas decimais permitidas
         $media = bcdiv($media, 1, $this->getRegraAvaliacaoQtdCasasDecimais());
 
-        return $this->getRegraAvaliacaoTabelaArredondamento()->round($media, 2, $this->getRegraAvaliacaoQtdCasasDecimais());
+        // Passa qtdeEtapas para tabelas conceituais poderem normalizar a média
+        $qtdeEtapas = $this->getOption('etapas');
+
+        return $this->getRegraAvaliacaoTabelaArredondamento()->round($media, 2, $this->getRegraAvaliacaoQtdCasasDecimais(), $qtdeEtapas);
     }
 
     /**
