@@ -227,7 +227,7 @@ class EditController extends Core_Controller_Page_EditController
                 'normalizarMedia',
                 $this->_getLabel('normalizarMedia'),
                 [0 => 'Não', 1 => 'Sim'],
-                $this->getEntity()->get('normalizarMedia'),
+                $this->getEntity()->get('normalizarMedia') ? 1 : 0,
                 '',
                 '',
                 $this->_getHelp('normalizarMedia')
@@ -511,7 +511,9 @@ class EditController extends Core_Controller_Page_EditController
         }
 
         $entity->arredondarNota = $this->getRequest()->arredondarNota;
-        $entity->normalizarMedia = $this->getRequest()->normalizarMedia;
+        if(! is_null($this->getRequest()->normalizarMedia)) {
+            $entity->normalizarMedia = $this->getRequest()->normalizarMedia;
+        }
 
         $this->getDataMapper()->save($entity);
 
