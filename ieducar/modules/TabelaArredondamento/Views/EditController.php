@@ -511,7 +511,7 @@ class EditController extends Core_Controller_Page_EditController
         }
 
         $entity->arredondarNota = $this->getRequest()->arredondarNota;
-        if(! is_null($this->getRequest()->normalizarMedia)) {
+        if (!is_null($this->getRequest()->normalizarMedia)) {
             $entity->normalizarMedia = $this->getRequest()->normalizarMedia;
         }
 
