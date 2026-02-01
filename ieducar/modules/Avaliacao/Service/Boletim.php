@@ -2345,13 +2345,18 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
         }
 
         if ($this->usaTabelaArredondamentoConceitual($componenteId)) {
-            return $this->getRegraAvaliacaoTabelaArredondamentoConceitual()->round($media, 2);
+            $qtdeEtapas = $this->getOption('etapas');
+
+            return $this->getRegraAvaliacaoTabelaArredondamentoConceitual()->round($media, 2, 1, $qtdeEtapas);
         }
 
         // Reduz a média sem arredondar para quantidade de casas decimais permitidas
         $media = bcdiv($media, 1, $this->getRegraAvaliacaoQtdCasasDecimais());
 
-        return $this->getRegraAvaliacaoTabelaArredondamento()->round($media, 2, $this->getRegraAvaliacaoQtdCasasDecimais());
+        // Passa qtdeEtapas para tabelas conceituais poderem normalizar a média
+        $qtdeEtapas = $this->getOption('etapas');
+
+        return $this->getRegraAvaliacaoTabelaArredondamento()->round($media, 2, $this->getRegraAvaliacaoQtdCasasDecimais(), $qtdeEtapas);
     }
 
     /**
@@ -3366,7 +3371,7 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
     {
         $id = $this->getRegra()->get('id');
 
-        return Cache::remember('evaluation_rule_' . $id, now()->addMinute(), function () use ($id) {
+        return Cache::remember('evaluation_rule_' . $id, now()->addMinutes(5), function () use ($id) {
             return LegacyEvaluationRule::findOrFail(
                 $id
             );
