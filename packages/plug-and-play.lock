@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b56d29568bde6a0ebe6ee85ea5acba0",
+    "content-hash": "04ae6faa15af8c515e59f180f7053f6e",
     "packages": [
         {
             "name": "ankurk91/laravel-eloquent-relationships",
@@ -5202,6 +5202,42 @@
             }
         },
         {
+            "name": "portabilis/i-educar-library-package",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./packages/portabilis/i-educar-library-package",
+                "reference": "a34daa2f8a08bd5cc13491081ae238066718191d"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "iEducar\\Packages\\Library\\Providers\\LibraryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "ieducar/intranet/include",
+                    "ieducar/lib",
+                    "ieducar/modules/Biblioteca/Model"
+                ],
+                "psr-4": {
+                    "iEducar\\Packages\\Library\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Portabilis Tecnologia",
+                    "email": "contato@portabilis.com.br"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "portabilis/i-educar-reports-package",
             "version": "2.10.x-dev",
             "dist": {
@@ -5233,6 +5269,41 @@
                     "name": "Portábilis",
                     "email": "contato@portabilis.com.br",
                     "homepage": "https://portabilis.com.br"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "portabilis/i-educar-transport-package",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./packages/portabilis/i-educar-transport-package",
+                "reference": "0c926f51e9350bb783088534c6ab3bb12a1381a5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "iEducar\\Packages\\Transport\\Providers\\TransportServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "ieducar/intranet/include",
+                    "ieducar/modules/Transporte"
+                ],
+                "psr-4": {
+                    "iEducar\\Packages\\Transport\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Portabilis Tecnologia",
+                    "email": "contato@portabilis.com.br"
                 }
             ],
             "transport-options": {
@@ -13357,7 +13428,12 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "portabilis/i-educar-educacenso-package": 20,
+        "portabilis/i-educar-library-package": 20,
+        "portabilis/i-educar-reports-package": 20,
+        "portabilis/i-educar-transport-package": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
