@@ -203,11 +203,20 @@ create_env() {
     sed -i "s|^DOCKER_POSTGRES_PORT=.*|DOCKER_POSTGRES_PORT=$DB_PORT|" .env
     sed -i "s|^DOCKER_REDIS_PORT=.*|DOCKER_REDIS_PORT=$REDIS_PORT|" .env
 
-    # Configurar UID/GID do host
+    # Configurar UID/GID do host (UID 0 = root causa conflito no Dockerfile)
     HOST_UID_VAL=$(id -u)
     HOST_GID_VAL=$(id -g)
+    if [ "$HOST_UID_VAL" -eq 0 ]; then
+        HOST_UID_VAL=1001
+        HOST_GID_VAL=1001
+        warn "Rodando como root. Usando UID/GID 1001 para o container."
+    fi
     sed -i "s|^HOST_UID=.*|HOST_UID=$HOST_UID_VAL|" .env
     sed -i "s|^HOST_GID=.*|HOST_GID=$HOST_GID_VAL|" .env
+
+    # Garantir permissões de escrita para o container
+    chmod -R 777 storage bootstrap/cache 2>/dev/null || true
+    mkdir -p vendor && chmod -R 777 vendor 2>/dev/null || true
 
     log ".env configurado (HTTP:$APP_PORT, SSL:$SSL_PORT, Postgres:$DB_PORT, Redis:$REDIS_PORT)"
 }
