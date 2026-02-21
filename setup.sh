@@ -16,6 +16,7 @@ NC='\033[0m'
 # ---- Configurações padrão (altere aqui ou passe via ENV) ----
 INSTALL_DIR="${INSTALL_DIR:-/var/www/ieducar}"
 APP_PORT="${APP_PORT:-8880}"
+SSL_PORT="${SSL_PORT:-8443}"
 DB_PORT="${DB_PORT:-5433}"
 REDIS_PORT="${REDIS_PORT:-6380}"
 DB_NAME="${DB_NAME:-ieducar}"
@@ -66,16 +67,16 @@ check_deps() {
 # PASSO 1: Verificar portas
 # ============================================================
 check_ports() {
-    step "1" "Verificando portas ($APP_PORT, $DB_PORT, $REDIS_PORT)..."
+    step "1" "Verificando portas ($APP_PORT, $SSL_PORT, $DB_PORT, $REDIS_PORT)..."
 
-    for port in $APP_PORT $DB_PORT $REDIS_PORT; do
+    for port in $APP_PORT $SSL_PORT $DB_PORT $REDIS_PORT; do
         if ss -tlnp 2>/dev/null | grep -q ":${port} " || \
            netstat -tlnp 2>/dev/null | grep -q ":${port} "; then
-            err "Porta $port já está em uso! Defina outra via variável de ambiente. Ex: APP_PORT=9090 bash setup.sh"
+            err "Porta $port já está em uso! Defina outra via variável de ambiente. Ex: APP_PORT=9090 SSL_PORT=9443 bash setup.sh"
         fi
     done
 
-    log "Portas $APP_PORT, $DB_PORT, $REDIS_PORT estão livres."
+    log "Portas $APP_PORT, $SSL_PORT, $DB_PORT, $REDIS_PORT estão livres."
 }
 
 # ============================================================
@@ -192,11 +193,13 @@ create_env() {
 
     # Adicionar variáveis de porta Docker se não existem
     grep -q "^DOCKER_NGINX_PORT=" .env || echo "DOCKER_NGINX_PORT=$APP_PORT" >> .env
+    grep -q "^DOCKER_NGINX_SSL_PORT=" .env || echo "DOCKER_NGINX_SSL_PORT=$SSL_PORT" >> .env
     grep -q "^DOCKER_POSTGRES_PORT=" .env || echo "DOCKER_POSTGRES_PORT=$DB_PORT" >> .env
     grep -q "^DOCKER_REDIS_PORT=" .env || echo "DOCKER_REDIS_PORT=$REDIS_PORT" >> .env
 
     # Atualizar portas Docker se já existem
     sed -i "s|^DOCKER_NGINX_PORT=.*|DOCKER_NGINX_PORT=$APP_PORT|" .env
+    sed -i "s|^DOCKER_NGINX_SSL_PORT=.*|DOCKER_NGINX_SSL_PORT=$SSL_PORT|" .env
     sed -i "s|^DOCKER_POSTGRES_PORT=.*|DOCKER_POSTGRES_PORT=$DB_PORT|" .env
     sed -i "s|^DOCKER_REDIS_PORT=.*|DOCKER_REDIS_PORT=$REDIS_PORT|" .env
 
@@ -206,7 +209,7 @@ create_env() {
     sed -i "s|^HOST_UID=.*|HOST_UID=$HOST_UID_VAL|" .env
     sed -i "s|^HOST_GID=.*|HOST_GID=$HOST_GID_VAL|" .env
 
-    log ".env configurado (Nginx:$APP_PORT, Postgres:$DB_PORT, Redis:$REDIS_PORT)"
+    log ".env configurado (HTTP:$APP_PORT, SSL:$SSL_PORT, Postgres:$DB_PORT, Redis:$REDIS_PORT)"
 }
 
 # ============================================================
