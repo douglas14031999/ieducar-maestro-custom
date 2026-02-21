@@ -215,7 +215,10 @@ create_env() {
 start_containers() {
     step "6" "Subindo containers Docker (pode demorar no primeiro build)..."
 
-    $COMPOSE_CMD up -d --build
+    # Build em 2 fases para evitar race condition do BuildKit
+    # (php, fpm e horizon compartilham a mesma imagem php:8.4-ieducar)
+    $COMPOSE_CMD build php
+    $COMPOSE_CMD up -d
 
     # Aguardar PostgreSQL ficar pronto
     echo -n "  Aguardando PostgreSQL..."
