@@ -1,0 +1,26 @@
+// Vitest Snapshot v1
+
+exports[`PreRegistrationBatch > should match snapshot 1`] = `
+<modal-stub
+  bodyclass=""
+  fullwidth="false"
+  iconleft=""
+  iconright=""
+  initialloading="false"
+  isoverflowvisible="false"
+  large="true"
+  loadinginputs="false"
+  loadingtext="false"
+  maximized="false"
+  modelvalue="true"
+  nofooter="true"
+  noheader="false"
+  overflowvisible="false"
+  persistent="false"
+  position="standard"
+  seamless="false"
+  title="Convocação em lote"
+  titleclass=""
+  tooltipicon=""
+/>
+`;

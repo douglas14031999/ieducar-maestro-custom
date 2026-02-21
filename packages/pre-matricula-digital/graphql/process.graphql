@@ -1,0 +1,310 @@
+extend type Query @guard(with: ["web", "sanctum", "prematricula"]) {
+
+  """
+  Retorna o processo de ID.
+  """
+  process(id: ID! @eq): Process! @find
+
+  """
+  Lista todos os processos.
+  """
+  processes(
+    """
+    Retorna apenas processos onde o nome contenha `search`.
+    """
+    search: String @search(columns: ["name"])
+
+    """
+    Retorna apenas os processos ativos/inativos.
+    """
+    active: Boolean @eq
+
+    """
+    Retorna apenas processos do ano informado.
+    """
+    year: Int @search(columns: ["school_year_id"])
+
+  ): [Process!]! @paginate
+
+  """
+  Lista todos os agrupadores de processos.
+  """
+  groupers: [ProcessGrouper!]! @all
+
+  """
+  Retorna a etapa do processo de ID.
+  """
+  processByStage(
+    id: ID! @eq
+  ): ProcessStage! @find
+
+  """
+  Retorna todas as vagas do processo.
+  """
+  vacancies(
+    process: ID @eq(key: "process_id")
+    processes: [ID!] @in(key: "process_id")
+  ): [ProcessVacancy!]! @all
+
+  getProcessVacancyStatistics(
+    process: ID! @eq(key: "process_id")
+    schools: [ID!] @in(key: "school_id")
+    grades: [ID!] @in(key: "grade_id")
+    periods: [ID!] @in(key: "period_id")
+  ): [ProcessVacancyStatistics!]! @all
+
+  getProcessVacancyTotal(
+    process: [ID!] @in(key: "process_id")
+    schools: [ID!] @in(key: "school_id")
+    grades: [ID!] @in(key: "grade_id")
+    periods: [ID!] @in(key: "period_id")
+    year: Int @search(columns: ["process.school_year_id"])
+  ): [ProcessVacancyTotal!]! @all
+
+  getProcessVacancyUnique(
+    process: [ID!] @in(key: "process_id")
+    schools: [ID!] @in(key: "school_id")
+    grades: [ID!] @in(key: "grade_id")
+    periods: [ID!] @in(key: "period_id")
+    year: Int @search(columns: ["process.school_year_id"])
+  ): [ProcessVacancyUnique!]! @all
+}
+
+enum ProcessStageType {
+  REGISTRATION_RENEWAL @enum(value: 1)
+  REGISTRATION @enum(value: 2)
+  WAITING_LIST @enum(value: 3)
+}
+
+enum ProcessStageStatus {
+  NOT_OPEN @enum(value: 1)
+  OPEN @enum(value: 2)
+  CLOSED @enum(value: 3)
+}
+
+enum ProcessStageRestriction {
+  NONE @enum(value: 1)
+  REGISTRATION_LAST_YEAR @enum(value: 2)
+  REGISTRATION_CURRENT_YEAR @enum(value: 3)
+  NO_REGISTRATION_CURRENT_YEAR @enum(value: 4)
+  NO_REGISTRATION_PERIOD_CURRENT_YEAR @enum(value: 6)
+  NEW_STUDENT @enum(value: 5)
+  PRE_REGISTRATION @enum(value: 11)
+}
+
+enum ProcessRejectType {
+  NO_REJECT @enum(value: 0)
+  REJECT_SAME_PROCESS @enum(value: 1)
+  REJECT_SAME_YEAR @enum(value: 2)
+}
+
+type Process {
+  id: ID!
+  name: String!
+  active: Boolean!
+  schoolYear: SchoolYear! @belongsTo
+  grouper: ProcessGrouper @belongsTo
+  periods: [Period!]! @belongsToMany
+  grades: [ProcessGradeSuggest!]! @hasMany(relation: "gradesWithSuggestedAges")
+  schools: [School!]! @belongsToMany
+  schoolsSelected: [School!]! @belongsToMany
+  vacancies: [ProcessVacancy!]! @hasMany
+  totalVacancies: Int @aggregate(relation: "vacancies", column: "total", function: SUM)
+  totalPreRegistrations: Int! @count(relation: "preregistrations")
+  totalAcceptedPreRegistrations: Int! @count(relation: "acceptedPreregistrations")
+  totalRejectedPreRegistrations: Int! @count(relation: "rejectedPreregistrations")
+  totalWaitingPreRegistrations: Int! @count(relation: "waitingPreregistrations")
+  stages: [ProcessStage!]! @hasMany
+  fields: [ProcessField!]! @hasMany
+  messageFooter: String @rename(attribute: "message_footer")
+  gradeAgeRangeLink: String @rename(attribute: "grade_age_range_link")
+  forceSuggestedGrade: Boolean! @rename(attribute: "force_suggested_grade")
+  showPriorityProtocol: Boolean! @rename(attribute: "show_priority_protocol")
+  allowResponsibleSelectMapAddress: Boolean! @rename(attribute: "allow_responsible_select_map_address")
+  blockIncompatibleAgeGroup: Boolean! @rename(attribute: "block_incompatible_age_group")
+  autoRejectByDays: Boolean! @rename(attribute: "auto_reject_by_days")
+  autoRejectDays: Int @rename(attribute: "auto_reject_days")
+  selectedSchools: Boolean! @rename(attribute: "selected_schools")
+  waitingListLimit: Int! @rename(attribute: "waiting_list_limit")
+  minimumAge: Int @rename(attribute: "minimum_age")
+  onePerYear: Boolean! @rename(attribute: "one_per_year")
+  showWaitingList: Boolean! @rename(attribute: "show_waiting_list")
+  rejectType: ProcessRejectType! @rename(attribute: "reject_type_id")
+  criteria: String
+}
+
+type ProcessGrouper {
+  id: ID!
+  name: String!
+  waitingListLimit: Int! @rename(attribute: "waiting_list_limit")
+  processes: [Process!]! @hasMany
+}
+
+type ProcessVacancy {
+  process: ID! @rename(attribute: "process_id")
+  grade: ID! @rename(attribute: "grade_id")
+  period: ID! @rename(attribute: "period_id")
+  school: ID! @rename(attribute: "school_id")
+  total: Int!
+  available: Int!
+}
+
+type ProcessVacancyStatistics {
+  process: ID! @rename(attribute: "process_id")
+  grade: ID! @rename(attribute: "grade_id")
+  period: ID! @rename(attribute: "period_id")
+  school: ID! @rename(attribute: "school_id")
+  total: Int!
+  available: Int!
+  availableVacancies: Int! @rename(attribute: "available_vacancies")
+  waiting: Int!
+  accepted: Int!
+  rejected: Int!
+}
+
+type ProcessVacancyTotal {
+  process: Process!
+  total: Int!
+  availableVacancies: Int! @rename(attribute: "available_vacancies")
+  available: Int!
+  waiting: Int!
+  accepted: Int!
+  rejected: Int!
+  excededVacancies: Int! @rename(attribute: "exceded_vacancies")
+}
+
+type ProcessVacancyUnique {
+  process: ID! @rename(attribute: "process_id")
+  unique: Int!
+  waiting: Int!
+}
+
+type ProcessField {
+  id: ID!
+  field: Field!
+  process: Process!
+  required: Boolean!
+  order: Int!
+  weight: Int!
+}
+
+type ProcessStage {
+  id: ID!
+  process: Process! @belongsTo
+  type: ProcessStageType! @rename(attribute: "process_stage_type_id")
+  name: String!
+  description: String
+  startAt: DateTime! @rename(attribute: "start_at")
+  endAt: DateTime! @rename(attribute: "end_at")
+  radius: Int
+  status: ProcessStageStatus!
+  observation: String
+  renewalAtSameSchool: Boolean! @rename(attribute: "renewal_at_same_school")
+  allowWaitingList: Boolean! @rename(attribute: "allow_waiting_list")
+  restrictionType: ProcessStageRestriction! @rename(attribute: "restriction_type")
+  allowSearch: Boolean! @rename(attribute: "allow_search")
+  totalAcceptedPreRegistrations: Int! @count(relation: "acceptedPreregistrations")
+  totalRejectedPreRegistrations: Int! @count(relation: "rejectedPreregistrations")
+  totalWaitingPreRegistrations: Int! @count(relation: "waitingPreregistrations")
+}
+
+type ProcessGradeSuggest {
+  id: ID!
+  name: String!
+  startBirth: Date @rename(attribute: "start_birth")
+  endBirth: Date @rename(attribute: "end_birth")
+  course: Course!
+}
+
+input ProcessInput {
+  id: ID
+  name: String!
+  active: Boolean!
+  schoolYear: ID! @rename(attribute: "school_year_id")
+  grades: [ID!]!
+  periods: [ID!]!
+  messageFooter: String @rename(attribute: "message_footer")
+  gradeAgeRangeLink: String @rename(attribute: "grade_age_range_link")
+  forceSuggestedGrade: Boolean! @rename(attribute: "force_suggested_grade")
+  showPriorityProtocol: Boolean! @rename(attribute: "show_priority_protocol")
+  allowResponsibleSelectMapAddress: Boolean! @rename(attribute: "allow_responsible_select_map_address")
+  blockIncompatibleAgeGroup: Boolean! @rename(attribute: "block_incompatible_age_group")
+  autoRejectByDays: Boolean! @rename(attribute: "auto_reject_by_days")
+  autoRejectDays: Int @rename(attribute: "auto_reject_days")
+  selectedSchools: Boolean! @rename(attribute: "selected_schools")
+  schools: [ID!]!
+  waitingListLimit: Int! @rename(attribute: "waiting_list_limit")
+  minimumAge: Int @rename(attribute: "minimum_age")
+  onePerYear: Boolean! @rename(attribute: "one_per_year")
+  showWaitingList: Boolean! @rename(attribute: "show_waiting_list")
+  rejectType: ProcessRejectType! @rename(attribute: "reject_type_id")
+  criteria: String
+  grouper: ID @rename(attribute: "process_grouper_id")
+}
+
+extend type Mutation @guard {
+
+  saveProcess(
+    input: ProcessInput! @spread
+  ): Process!
+
+  deleteProcess(
+    id: ID! @whereKey
+  ): Process! @delete
+
+  saveProcessFields(
+    id: ID!
+    fields: [ProcessFieldInput!]!
+  ): Process!
+
+  saveProcessStages(
+    id: ID!
+    stages: [ProcessStageInput!]!
+  ): Process!
+
+  copyProcess(
+    id: ID!
+  ): Process!
+
+  rejectInBatch(
+    id: ID!
+    stageId: ID!
+    justification: String
+  ): Int!
+
+  saveProcessGrouper(
+    input: ProcessGrouperInput! @spread
+  ): ProcessGrouper!
+
+  deleteProcessGrouper(
+    id: ID! @whereKey
+  ): ProcessGrouper! @delete
+
+}
+
+input ProcessFieldInput {
+  field: ID! @rename(attribute: "field_id")
+  order: Int!
+  required: Boolean!
+  weight: Int!
+}
+
+input ProcessGrouperInput {
+  name: String!
+  waitingListLimit: Int! @rename(attribute: "waiting_list_limit")
+  processes: [ID!]
+}
+
+input ProcessStageInput {
+  id: ID
+  type: ProcessStageType! @rename(attribute: "process_stage_type_id")
+  name: String!
+  radius: Int
+  startAt: DateTime! @rename(attribute: "start_at")
+  endAt: DateTime! @rename(attribute: "end_at")
+  observation: String
+  renewalAtSameSchool: Boolean! @rename(attribute: "renewal_at_same_school")
+  allowWaitingList: Boolean! @rename(attribute: "allow_waiting_list")
+  restrictionType: ProcessStageRestriction! @rename(attribute: "restriction_type")
+  allowSearch: Boolean! @rename(attribute: "allow_search")
+}

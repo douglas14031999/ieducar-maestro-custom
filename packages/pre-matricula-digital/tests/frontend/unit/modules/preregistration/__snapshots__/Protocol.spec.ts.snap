@@ -1,0 +1,183 @@
+// Vitest Snapshot v1
+
+exports[`Protocol > should match snapshot 1`] = `
+<div
+  class="container-pmd"
+  data-v-ca987901=""
+>
+  <h2
+    class="font-muli-20-primary mb-4 text-center"
+    data-v-ca987901=""
+  >
+     Sua inscrição foi realizada com sucesso! 
+  </h2>
+  <p
+    class="mb-4"
+    data-v-ca987901=""
+  >
+     Para acompanhar a atualização da Pré-matrícula, não esqueça de anotar/salvar o(s) código(s) do(s) 
+    <strong
+      data-v-ca987901=""
+    >
+      protocolo(s)
+    </strong>
+     gerado(s). 
+  </p>
+  <div
+    class="m-auto"
+    data-v-ca987901=""
+    style="max-width: 340px;"
+  >
+    <!--v-if-->
+    <!--v-if-->
+    
+    
+  </div>
+  <div
+    class="mt-5 text-center"
+    data-v-ca987901=""
+  >
+    Acompanhe a publicação do resultado classificatório e convocação no site da Prefeitura.
+  </div>
+  <div
+    class="text-center mt-5 mb-4"
+    data-v-ca987901=""
+  >
+    <div
+      class="row mb-5"
+      data-v-ca987901=""
+    >
+      <div
+        class="col-12 col-md-4 offset-md-2"
+        data-v-ca987901=""
+      >
+        <button
+          class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-primary border-primary x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100 mb-2"
+          data-v-ca987901=""
+          role="button"
+          style="font-size: 20px;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+          >
+            <span
+              class="block"
+            >
+              Imprimir
+            </span>
+          </span>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="x-transition--fade"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+        </button>
+      </div>
+      <div
+        class="col-12 col-md-4"
+        data-v-ca987901=""
+      >
+        <button
+          class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-primary border-primary x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+          data-v-ca987901=""
+          role="button"
+          style="font-size: 20px;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+          >
+            <span
+              class="block"
+            >
+              Enviar por e-mail
+            </span>
+          </span>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="x-transition--fade"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+        </button>
+      </div>
+    </div>
+    <div
+      class="row"
+      data-v-ca987901=""
+    >
+      <div
+        class="col-12 col-md-5 offset-md-1 mb-4"
+        data-v-ca987901=""
+      >
+        <button
+          class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-primary border-primary x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+          data-v-ca987901=""
+          role="button"
+          style="font-size: 20px;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+          >
+            <span
+              class="block"
+            >
+              Nova Inscrição
+            </span>
+          </span>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="x-transition--fade"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+        </button>
+      </div>
+      <div
+        class="col-12 col-md-5 mb-4"
+        data-v-ca987901=""
+      >
+        <button
+          class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100 border-primary"
+          data-v-ca987901=""
+          role="button"
+          style="font-size: 20px;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+          >
+            <span
+              class="block"
+            >
+              Voltar para a tela inicial
+            </span>
+          </span>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="x-transition--fade"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;

@@ -1,0 +1,51 @@
+extend type Query @guard(with: ["web", "sanctum", "prematricula"]) {
+
+  """
+  Retorna todas as escolas.
+  """
+  schools(
+    """
+    Retorna apenas escolas de IDs.
+    """
+    schools: [ID!] @in(key: "id")
+
+    """
+    Retorna apenas escolas que possuam turmas vínculadas a um processo de pré-matrícula.
+    """
+    processes: [ID!] @scope(name: "processes")
+  ): [School!]! @paginate
+
+  school(id: ID @eq): School @find
+
+  getGroupedVacancies(
+    school: ID!
+    schoolYear: ID!
+    grades: [ID!]!
+    periods: [ID!]!
+  ): [GroupedVacancies!]!
+
+}
+
+type School {
+  id: ID!
+  name: String!
+  latitude: Float
+  longitude: Float
+  area_code: Int
+  phone: String
+  email: String
+  processes: [Process!]! @belongsToMany
+  classrooms(
+    schoolYear: ID! @eq(key: "school_year_id")
+    grades: [ID!] @in(key: "grade_id")
+    periods: [ID!] @in(key: "period_id")
+  ): [Classroom!]! @hasMany(type: PAGINATOR)
+  vacancies: Int
+}
+
+type GroupedVacancies {
+  grade: Grade!
+  period: Period!
+  school: School!
+  vacancies: Int!
+}

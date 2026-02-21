@@ -1,0 +1,80 @@
+// Vitest Snapshot v1
+
+exports[`NoticeEdit > should match snapshot 1`] = `
+<div>
+  <!--v-if-->
+  <div>
+    <div
+      class="row mt-5"
+    >
+      <div
+        class="col-12 col-lg-10 offset-lg-1"
+      >
+        <h2
+          class="title-find-school"
+        >
+          Avisos
+        </h2>
+        <div
+          class="mt-4"
+        >
+          <p
+            class="font-hind text-justify"
+          >
+             Ao inserir conteúdo no editor de texto abaixo a mensagem será apresentada na tela inicial de inscrições para os responsáveis na seção Avisos, respeitando a formatação definida. Use o espaço para inserir orientações aos responsáveis no processo de pré-matrícula do município. 
+          </p>
+        </div>
+        <div
+          class="mt-4"
+        >
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 p-0"
+            disabled="false"
+            errors="false"
+            loading="false"
+            modelvalue="test notice"
+            name="text"
+            options=""
+            searchable="false"
+            type="RICH_TEXT"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="mt-2 col-12 col-lg-10 offset-lg-1 p-0"
+    >
+      <div
+        class="d-flex justify-content-end"
+      >
+        <button
+          class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100 col-12 col-md-2"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+          >
+            <span
+              class="block"
+            >
+              Salvar
+            </span>
+          </span>
+          <transition-stub
+            appear="false"
+            css="true"
+            name="x-transition--fade"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

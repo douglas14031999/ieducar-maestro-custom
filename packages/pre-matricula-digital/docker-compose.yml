@@ -1,0 +1,14 @@
+x-node: &node
+  image: node:22-alpine
+  working_dir: /var/www/pre-matricula-digital
+  volumes:
+    - ./:/var/www/pre-matricula-digital
+
+services:
+
+  node:
+    <<: *node
+    container_name: pmd-node
+    command: yarn dev --host 0.0.0.0
+    ports:
+      - "5173:5173"

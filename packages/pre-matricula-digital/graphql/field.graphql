@@ -1,0 +1,80 @@
+enum FieldType {
+  TEXT @enum(value: 1)
+  LONG_TEXT @enum(value: 2)
+  SELECT @enum(value: 3)
+  MULTI_SELECT @enum(value: 4)
+  CHECKBOX @enum(value: 5)
+  RADIO @enum(value: 6)
+  CITY @enum(value: 7)
+  DATE @enum(value: 8)
+  TIME @enum(value: 9)
+  EMAIL @enum(value: 10)
+  PHONE @enum(value: 11)
+  CPF @enum(value: 12)
+  BIRTH_CERTIFICATE @enum(value: 13)
+  MARITAL_STATUS @enum(value: 14)
+  GENDER @enum(value: 15)
+  RG @enum(value: 16)
+  FILE @enum(value: 17)
+  NUMBER @enum(value: 18)
+}
+
+enum GroupType {
+  RESPONSIBLE @enum(value: 1)
+  STUDENT @enum(value: 2)
+}
+
+extend type Query @guard {
+  field(id: ID! @eq): Field! @find
+  fields(
+    search: String @search(columns: ["name"])
+  ): [Field!]! @paginate
+}
+
+type Field {
+  id: ID!
+  type: FieldType! @rename(attribute: "field_type_id")
+  group: GroupType! @rename(attribute: "group_type_id")
+  name: String!
+  description: String
+  internal: String
+  required: Boolean!
+  options: [FieldOption!]! @hasMany
+  pivot: PreRegistrationField
+}
+
+type FieldOption {
+  id: ID
+  name: String
+  weight: Int
+}
+
+extend type Mutation @guard {
+  createField(input: CreateFieldInput! @spread): Field! @create
+  updateField(input: UpdateFieldInput! @spread): Field! @update
+  deleteField(id: ID! @whereKey): Field! @delete
+}
+
+input CreateFieldInput {
+  name: String!
+  description: String
+  type: FieldType! @rename(attribute: "field_type_id")
+  group: GroupType! @rename(attribute: "group_type_id")
+  options: [FieldOptionInput!] @upsert
+}
+
+input UpdateFieldInput {
+  id: ID!
+  name: String
+  description: String
+  type: FieldType @rename(attribute: "field_type_id")
+  group: GroupType @rename(attribute: "group_type_id")
+  options: [FieldOptionInput!] @upsert
+  deleteOptions: [ID!] @delete(relation: "options")
+}
+
+input FieldOptionInput {
+  id: ID
+  name: String!
+  weight: Int
+}

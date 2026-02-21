@@ -1,0 +1,156 @@
+// Vitest Snapshot v1
+
+exports[`SchoolFind > should match snapshot 1`] = `
+<div>
+  <div
+    class="row mt-3"
+  >
+    <div
+      class="container-sm col-10 col-lg-6 mt-4 pt-lg-4"
+    >
+      <div
+        class="d-flex align-items-center mb-5"
+      >
+        <div
+          class="font-muli"
+          style="color: #003473;"
+        >
+          <div
+            style="font-size: 24px;"
+          >
+            Some slogan
+          </div>
+          <div
+            style="font-size: 34px;"
+          >
+            Some City
+          </div>
+        </div>
+        <div
+          class="ml-auto col-5"
+        >
+          <img
+            alt="Some City"
+            class="img-fluid"
+            src="https://logo.com"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12"
+    >
+      <h2
+        class="title-find-school"
+      >
+        Consultar escola
+      </h2>
+      <div
+        class="x-card x-card--flat no-shadow bg-primary mt-4"
+      >
+        <div
+          class="x-card__section x-card__section--vert"
+        >
+          <form>
+            <x-field-stub
+              allowclear="false"
+              bind="[object Object]"
+              containerclass="w-100"
+              disabled="false"
+              errors="false"
+              label="Endereço"
+              labelclass="form-label-bg-blue"
+              loading="false"
+              name="address"
+              options=""
+              placeholder="Digite o seu endereço (rua e número)"
+              searchable="false"
+              type="TEXT"
+            />
+            <div
+              class="mt-2"
+            >
+              <div
+                class="d-flex justify-content-between"
+              >
+                <x-field-stub
+                  allowclear="false"
+                  bind="[object Object]"
+                  containerclass="mr-3 w-100"
+                  disabled="false"
+                  errors="false"
+                  id="grade"
+                  label="Série"
+                  labelclass="form-label-bg-blue"
+                  loading="false"
+                  name="grade"
+                  options="[object Object],[object Object],[object Object],[object Object]"
+                  placeholder="Selecione a série"
+                  searchable="true"
+                  type="SELECT"
+                />
+                <div
+                  class="d-flex align-items-center mt-3"
+                >
+                  <button
+                    class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle x-btn--actionable pmd-focusable pmd-hoverable w-100 bg-primary-light text-primary flex-row"
+                    data-test="btn-search-school"
+                    role="button"
+                    style="height: 45px;"
+                    tabindex="0"
+                    type="submit"
+                  >
+                    <span
+                      class="x-btn__content text-center d-flex justify-content-center"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="fa fa-search pmd-icon text-"
+                        role="img"
+                        style="margin-top: 1px;"
+                      >
+                         
+                      </i>
+                    </span>
+                    <transition-stub
+                      appear="false"
+                      css="true"
+                      name="x-transition--fade"
+                      persisted="false"
+                    >
+                      <!---->
+                    </transition-stub>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 mt-5"
+    >
+      <div
+        class="card"
+      >
+        <google-maps-stub
+          config="[object Object]"
+          lat="0"
+          lng="0"
+          style="height: 400px;"
+          zoom="13"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

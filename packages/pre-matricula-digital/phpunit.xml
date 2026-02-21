@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php" colors="true">
+  <coverage/>
+  <testsuites>
+    <testsuite name="all">
+      <directory suffix="Test.php">./tests</directory>
+      <exclude>./tests/Feature/Legacy</exclude>
+      <exclude>./tests/Feature/Services</exclude>
+    </testsuite>
+  </testsuites>
+  <php>
+    <ini name="memory_limit" value="256M"/>
+    <server name="APP_KEY" value="base64:1kzkMvk0xXx8yM1JjHIaNMDLZaw+XUDVkRI7CQUJtD8="/>
+    <server name="APP_ENV" value="testing"/>
+    <server name="BCRYPT_ROUNDS" value="4"/>
+    <server name="CACHE_DRIVER" value="array"/>
+    <server name="MAIL_DRIVER" value="array"/>
+    <server name="QUEUE_CONNECTION" value="sync"/>
+    <server name="SESSION_DRIVER" value="array"/>
+    <server name="DB_CONNECTION" value="sqlite"/>
+    <server name="DB_DATABASE" value=":memory:"/>
+    <server name="PMD_LEGACY" value="false"/>
+    <server name="LIGHTHOUSE_SCHEMA_CACHE_ENABLE" value="false"/>
+  </php>
+  <source>
+    <include>
+      <directory suffix=".php">./src</directory>
+    </include>
+    <exclude>
+      <file>src/Reports/Reports/PreRegistrationReport.php</file>
+    </exclude>
+  </source>
+</phpunit>

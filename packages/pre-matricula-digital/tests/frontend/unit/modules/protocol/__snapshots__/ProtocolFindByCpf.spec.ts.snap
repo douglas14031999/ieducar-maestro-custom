@@ -1,0 +1,134 @@
+// Vitest Snapshot v1
+
+exports[`ProtocolFindByCpf > should match snapshot 1`] = `
+<div>
+  <div>
+    <form
+      autocomplete="off"
+      class="row"
+    >
+      
+      
+      
+      <div
+        class="col-12"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-md-8 mt-5 offset-md-2"
+          >
+            <h2
+              class="font-muli-20-primary mb-4"
+            >
+               Identifique o(a) aluno(a) para encontrar o(s) protocolo(s): 
+            </h2>
+            <p
+              class="text-justify font-hind"
+            >
+               Preencha os dados abaixo para identificar se o(a) 
+              <strong>
+                aluno(a)
+              </strong>
+               já possui alguma inscrição de pré-matrícula. 
+            </p>
+            <div
+              class="d-flex justify-content-center mt-5 row"
+            >
+              
+              <x-field-stub
+                allowclear="false"
+                bind="[object Object]"
+                containerclass="col-12 col-md-6"
+                disabled="false"
+                errors="false"
+                label="CPF do(a) aluno(a)"
+                loading="false"
+                name="student_cpf"
+                options=""
+                rules="required|cpf"
+                searchable="false"
+                type="CPF"
+              />
+              
+            </div>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
+      
+      <div
+        class="col-12"
+      >
+        <div
+          class="row mt-5"
+        >
+          
+          <div
+            class="offset-md-3 col-md-3"
+          >
+            <button
+              class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-gray-500 border-gray-500 x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+              role="button"
+              style="font-size: 20px;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+              >
+                <span
+                  class="block"
+                >
+                  Voltar
+                </span>
+              </span>
+              <transition-stub
+                appear="false"
+                css="true"
+                name="x-transition--fade"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+            </button>
+          </div>
+          <div
+            class="col-md-3 mt-3 mt-md-0"
+          >
+            <button
+              class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase btn btn-block btn-primary w-100 h-100 flex-row justify-content-center"
+              disabled="false"
+              role="button"
+              style="font-size: 20px;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+              >
+                <span
+                  class="block"
+                >
+                  Prosseguir
+                </span>
+              </span>
+              <transition-stub
+                appear="false"
+                css="true"
+                name="x-transition--fade"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </form>
+  </div>
+  <!--v-if-->
+</div>
+`;

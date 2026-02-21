@@ -1,0 +1,47 @@
+type ExternalPerson {
+  id: ID! @rename(attribute: "external_person_id")
+  name: String!
+  gender: String
+  dateOfBirth: Date @rename(attribute: "date_of_birth")
+  cpf: String
+  rg: String
+  birthCertificate: String @rename(attribute: "birth_certificate")
+  phone: String
+  mobile: String
+  email: String
+  address: String
+  number: String
+  complement: String
+  neighborhood: String
+  postalCode: String @rename(attribute: "postal_code")
+}
+
+type Person {
+  id: ID!
+  name: String!
+  dateOfBirth: Date @rename(attribute: "date_of_birth")
+  cpf: String
+  rg: String
+  gender: String
+  maritalStatus: Int @rename(attribute: "marital_status")
+  placeOfBirth: Int @rename(attribute: "place_of_birth")
+  cityOfBirth: String @rename(attribute: "city_of_birth")
+  birthCertificate: String @rename(attribute: "birth_certificate")
+  email: String
+  phone: String
+  mobile: String
+  initials: String
+  addresses: [Address]
+}
+
+type Address {
+  postalCode: String! @rename(attribute: "postal_code")
+  address: String!
+  number: String!
+  complement: String
+  neighborhood: String!
+  city: String
+  lat: Float! @rename(attribute: "latitude")
+  lng: Float! @rename(attribute: "longitude")
+  manualChangeLocation: Boolean! @rename(attribute: "manual_change_location")
+}

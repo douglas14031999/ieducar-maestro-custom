@@ -1,0 +1,591 @@
+// Vitest Snapshot v1
+
+exports[`Vacancies > should match snapshot 1`] = `
+<main>
+  <h1>
+    Painel de Vagas
+  </h1>
+  <div
+    class="row mt-5 mb-5 pl-lg-0 pl-3 pr-lg-0 pr-3"
+  >
+    <div
+      class="col-12 p-0 d-flex justify-content-lg-around"
+      style="overflow-x: auto;"
+    >
+      
+      <div
+        class="x-card x-card--bordered col-6 col-md-2 bg-background card-summary mr-3 mr-lg-0"
+      >
+        <div
+          class="x-card__section x-card__section--vert d-flex justify-content-center mt-3 mb-3 pb-0"
+        >
+          <div
+            class="rounded-circle p-3 border-card bg-blue svg-real-estate"
+          />
+        </div>
+        <div
+          class="x-card__section x-card__section--vert text-center pt-0 pb-3"
+        >
+          <p
+            class="card-number"
+          >
+            0
+          </p>
+          <p
+            class="card-text"
+          >
+            Vagas ofertadas
+          </p>
+        </div>
+      </div>
+      <div
+        class="x-card x-card--bordered col-6 col-md-2 bg-background card-summary mr-3 mr-lg-0"
+      >
+        <div
+          class="x-card__section x-card__section--vert d-flex justify-content-center mt-3 mb-3 pb-0"
+        >
+          <div
+            class="rounded-circle p-3 border-card bg-blue svg-perfis"
+          />
+        </div>
+        <div
+          class="x-card__section x-card__section--vert text-center pt-0 pb-3"
+        >
+          <p
+            class="card-number"
+          >
+            0
+          </p>
+          <p
+            class="card-text"
+          >
+            Pré-matrículas inscritas
+          </p>
+        </div>
+      </div>
+      <div
+        class="x-card x-card--bordered col-6 col-md-2 bg-background card-summary mr-3 mr-lg-0"
+      >
+        <div
+          class="x-card__section x-card__section--vert d-flex justify-content-center mt-3 mb-3 pb-0"
+        >
+          <div
+            class="rounded-circle p-3 border-card bg-green svg-aprovado"
+          />
+        </div>
+        <div
+          class="x-card__section x-card__section--vert text-center pt-0 pb-3"
+        >
+          <p
+            class="card-number"
+          >
+            0
+          </p>
+          <p
+            class="card-text"
+          >
+            Deferidas
+          </p>
+        </div>
+      </div>
+      <div
+        class="x-card x-card--bordered col-6 col-md-2 bg-background card-summary mr-3 mr-lg-0"
+      >
+        <div
+          class="x-card__section x-card__section--vert d-flex justify-content-center mt-3 mb-3 pb-0"
+        >
+          <div
+            class="rounded-circle p-3 border-card bg-red svg-desaprovado"
+          />
+        </div>
+        <div
+          class="x-card__section x-card__section--vert text-center pt-0 pb-3"
+        >
+          <p
+            class="card-number"
+          >
+            0
+          </p>
+          <p
+            class="card-text"
+          >
+            Indeferidas
+          </p>
+        </div>
+      </div>
+      <div
+        class="x-card x-card--bordered col-6 col-md-2 bg-background card-summary mr-3 mr-lg-0"
+      >
+        <div
+          class="x-card__section x-card__section--vert d-flex justify-content-center mt-3 mb-3 pb-0"
+        >
+          <div
+            class="rounded-circle p-3 border-card bg-yellow svg-esperando"
+          />
+        </div>
+        <div
+          class="x-card__section x-card__section--vert text-center pt-0 pb-3"
+        >
+          <p
+            class="card-number"
+          >
+            0
+          </p>
+          <p
+            class="card-text"
+          >
+            Em espera
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="x-card bg-primary mb-4"
+  >
+    <div
+      class="x-card__section x-card__section--vert pl-2 pr-2"
+    >
+      <form>
+        <div
+          class="row m-0 mt-1 filter-gutters"
+        >
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 col-md-2 mb-md-0"
+            disabled="false"
+            errors="false"
+            loading="false"
+            modelvalue="2021"
+            name="year"
+            options="[object Object]"
+            placeholder="Ano"
+            searchable="false"
+            type="SELECT"
+          />
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 col-md-4 mb-md-0"
+            disabled="false"
+            errors="false"
+            loading="false"
+            modelvalue="00000"
+            name="school"
+            options="[object Object]"
+            placeholder="Filtrar por escola"
+            searchable="true"
+            type="SELECT"
+          />
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 col-md mb-md-0"
+            disabled="false"
+            errors="false"
+            loading="false"
+            name="grade"
+            options="[object Object]"
+            placeholder="Filtrar por série"
+            searchable="true"
+            type="SELECT"
+          />
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 col-md mb-md-0"
+            disabled="false"
+            errors="false"
+            loading="false"
+            name="period"
+            options="[object Object]"
+            placeholder="Filtrar por turno"
+            searchable="false"
+            type="SELECT"
+          />
+        </div>
+        <div
+          class="d-flex m-0 mt-3 filter-gutters justify-content-end"
+        >
+          <div>
+            <button
+              class="x-btn x-btn-item non-selectable no-outline x-btn--flat x-btn--rectangle text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase mr-3"
+              data-test="vacancy-btn-clear"
+              role="button"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+              >
+                <span
+                  class="block"
+                >
+                  Limpar
+                </span>
+              </span>
+              <transition-stub
+                appear="false"
+                css="true"
+                name="x-transition--fade"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+            </button>
+            <button
+              class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-white border-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase mr-2"
+              data-test="vacancy-btn-search"
+              role="button"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+              >
+                <span
+                  class="block"
+                >
+                  Buscar
+                </span>
+              </span>
+              <transition-stub
+                appear="false"
+                css="true"
+                name="x-transition--fade"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    class="row legend-wrapper ml-1"
+  >
+    <div
+      class="bg-green mr-1 mb-1"
+    />
+    <span>
+      DEFERIDAS
+    </span>
+    <div
+      class="bg-danger mr-1 mb-1"
+    />
+    <span>
+      INDEFERIDAS
+    </span>
+    <div
+      class="bg-yellow mr-1 mb-1"
+    />
+    <span>
+      EM ESPERA
+    </span>
+    <div
+      class="bg-light mr-1 mb-1"
+    />
+    <span>
+      INDISPONÍVEL
+    </span>
+    <div
+      class="open-legend mr-1 mb-1"
+    />
+    <span>
+      ABERTAS
+    </span>
+  </div>
+  <!--v-if-->
+  <div
+    class="row"
+  >
+    
+    <div
+      class="col-12 col-md-6 mt-4"
+      data-test="vacancy-card"
+    >
+      <div
+        class="x-card x-card--bordered"
+      >
+        <div
+          class="x-card__section x-card__section--vert p-3"
+        >
+          <div
+            class="d-flex justify-content-between"
+          >
+            <h3
+              class="font-hind-18-primary text-primary m-0 text-truncate"
+              data-test="vacancy-card-title"
+            >
+              TESTE 1
+            </h3>
+            <!--v-if-->
+          </div>
+        </div>
+        <div
+          class="x-card__section x-card__section--vert"
+        >
+          <!---->
+          <div
+            class="row p-3"
+          >
+            <div
+              class="col-12 px-3"
+            >
+              <div
+                class="d-flex"
+              >
+                <div>
+                  <div>
+                    Inscrições deferidas
+                  </div>
+                  <div
+                    class="text-muted small"
+                  >
+                     em relação ao total de 
+                    <strong>
+                      vagas ofertadas
+                    </strong>
+                  </div>
+                </div>
+                <div
+                  class="ml-auto text-right"
+                >
+                  <div
+                    data-test="vacancy-card-relation"
+                  >
+                    1/1
+                  </div>
+                  <div
+                    class="text-muted small"
+                    data-test="vacancy-card-relation-percentage"
+                  >
+                    100% 
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex mt-2"
+                style="margin-left: -0.25rem; margin-right: -0.25rem;"
+              >
+                <div
+                  class="cp"
+                  style="width: 1%;"
+                >
+                  <div
+                    class="bg-red"
+                    style="max-width: 100%; height: 14px; border-radius: 4px;"
+                  />
+                </div>
+                <div
+                  class="cp"
+                  style="width: 1%;"
+                >
+                  <div
+                    class="bg-green"
+                    style="max-width: 100%; height: 14px; border-radius: 4px;"
+                  />
+                </div>
+                <div
+                  class="cp"
+                  style="width: 1%;"
+                >
+                  <div
+                    class="bg-light"
+                    style="max-width: 100%; height: 14px; border-radius: 4px;"
+                  />
+                </div>
+                <div
+                  class="cp"
+                  style="width: 1%;"
+                >
+                  <div
+                    style="max-width: 100%; border: 1px solid #d8e9ff; height: 14px; border-radius: 4px;"
+                  />
+                </div>
+              </div>
+              <div
+                class="d-flex mt-2"
+                style="margin-left: -0.25rem; margin-right: -0.25rem;"
+              >
+                <div
+                  class="cp"
+                  style="width: 1%;"
+                >
+                  <div
+                    class="bg-danger"
+                    style="max-width: 100%; height: 4px; border-radius: 4px;"
+                  />
+                </div>
+                <div
+                  class="cp"
+                  style="width: 1%;"
+                >
+                  <div
+                    class="bg-info"
+                    style="max-width: 100%; height: 4px; border-radius: 4px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="row p-3"
+          >
+            <div
+              class="col-12 px-3"
+            >
+              <div
+                class="d-flex"
+              >
+                <div>
+                  <div>
+                    Inscrições em espera
+                  </div>
+                  <div
+                    class="text-muted small"
+                  >
+                     em relação a quantidade de 
+                    <strong>
+                      vagas disponíveis
+                    </strong>
+                  </div>
+                </div>
+                <div
+                  class="ml-auto text-right"
+                >
+                  <div>
+                    1/1
+                  </div>
+                  <div
+                    class="text-muted small"
+                  >
+                    1% 
+                  </div>
+                </div>
+              </div>
+              
+              <div
+                class="d-flex mt-2"
+                style="margin-left: -0.25rem; margin-right: -0.25rem;"
+              >
+                <div
+                  class="cp"
+                  style="width: 1%;"
+                >
+                  <div
+                    class="bg-yellow"
+                    style="max-width: 100%; height: 14px; border-radius: 4px;"
+                  />
+                </div>
+                <div
+                  class="cp"
+                  style="width: 1%;"
+                >
+                  <div
+                    style="max-width: 100%; border: 1px solid #d8e9ff; height: 14px; border-radius: 4px;"
+                  />
+                </div>
+              </div>
+              <div
+                class="d-flex mt-2"
+                style="margin-left: -0.25rem; margin-right: -0.25rem;"
+              >
+                <div
+                  class="cp"
+                  style="width: 1%;"
+                >
+                  <div
+                    class="bg-danger"
+                    style="max-width: 100%; height: 4px; border-radius: 4px;"
+                  />
+                </div>
+                <div
+                  class="cp"
+                  style="width: 1%;"
+                >
+                  <div
+                    class="bg-info"
+                    style="max-width: 100%; height: 4px; border-radius: 4px;"
+                  />
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div
+            class="row p-3"
+          >
+            <div
+              class="col-12 px-3"
+            >
+              <div
+                class="d-flex"
+              >
+                <div>
+                  <div>
+                    Alunos(as) inscritos(as)
+                  </div>
+                  <div
+                    class="text-muted small"
+                  >
+                     contabilizados somente os alunos com 
+                    <strong>
+                      CPF cadastrado
+                    </strong>
+                  </div>
+                </div>
+                <div
+                  class="ml-auto text-right"
+                >
+                  <div>
+                    1
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="x-card__section x-card__section--vert"
+        >
+          <div>
+            <!--v-if-->
+            <button
+              class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100 mt-3"
+              data-test="vacancy-card-see-more"
+              role="button"
+              style="font-size: 20px;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+              >
+                <span
+                  class="block"
+                >
+                  Ver mais detalhes
+                </span>
+              </span>
+              <transition-stub
+                appear="false"
+                css="true"
+                name="x-transition--fade"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</main>
+`;

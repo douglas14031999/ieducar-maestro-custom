@@ -1,0 +1,138 @@
+// Vitest Snapshot v1
+
+exports[`ResponsibleFields > should match snapshot 1`] = `
+<div>
+  <h2
+    class="font-muli-20-primary"
+  >
+     Preencha o formulário abaixo para criar sua inscrição: 
+  </h2>
+  <p>
+     Preencha os campos abaixo para identificar os dados do(a) responsável pela inscrição do(a) aluno(a). Os campos com asterisco (*) são de preenchimento 
+    <strong>
+      obrigatório
+    </strong>
+     para prosseguir com a inscrição. 
+  </p>
+  <hr
+    class="mt-5 mb-5"
+  />
+  <div
+    class="mb-3 d-sm-flex justify-content-between"
+  >
+    <h3
+      class="font-hind-18-primary"
+    >
+       Dados do(a) responsável pelo(a) aluno(a) 
+    </h3>
+    <button
+      class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase border-danger text-danger flex-row"
+      role="button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+      >
+        <span
+          class="block"
+        >
+          Limpar dados
+        </span>
+      </span>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="x-transition--fade"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+    </button>
+  </div>
+  <div
+    class="row"
+  >
+    
+    
+  </div>
+  <p
+    class="mt-4 mb-4"
+  >
+    Vínculo com o(a) aluno(a)
+  </p>
+  <div
+    class="row"
+  >
+    <x-field-stub
+      allowclear="false"
+      bind="[object Object]"
+      containerclass="col-12 col-md-6 form-group"
+      disabled="false"
+      errors="false"
+      label="Relação com o(a) aluno(a)"
+      loading="false"
+      name="relationType"
+      options="[object Object],[object Object],[object Object],[object Object]"
+      rules="required"
+      searchable="false"
+      type="SELECT"
+    />
+  </div>
+  <p
+    class="mt-4 mb-4"
+  >
+    Endereço residencial
+  </p>
+  <p
+    class="text-muted"
+  >
+     Digite o 
+    <strong>
+      CEP
+    </strong>
+     que corresponde ao seu endereço e clique em 'Buscar' para preenchimento automático. Caso seu endereço não seja encontrado, preencha manualmente os campos necessários para identificá-lo (endereço, número, bairro). 
+  </p>
+  <address-fields-stub
+    data="[object Object]"
+    errors="[object Object]"
+    fetchingaddresslatlng="false"
+    name="address"
+    setfieldvalue="[Function]"
+  />
+  <div
+    class="row mt-5"
+  >
+    <div
+      class="col-12 col-md-6 offset-md-3"
+    >
+      <button
+        class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+        data-test="btn-use-second-address"
+        role="button"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+        >
+          <span
+            class="block"
+          >
+            Adicionar endereço secundário
+          </span>
+        </span>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="x-transition--fade"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+      </button>
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;

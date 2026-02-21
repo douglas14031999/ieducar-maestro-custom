@@ -1,0 +1,194 @@
+.x-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  outline: 0;
+  border: 0;
+  vertical-align: middle;
+  font-size: $button-font-size;
+  line-height: $button-line-height;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  font-weight: $button-font-weight;
+  text-transform: uppercase;
+  text-align: center;
+  width: auto;
+  height: auto;
+  cursor: default;
+  padding: $button-padding;
+  min-height: 2em;
+  font-family: Muli, sans-serif;
+
+  &:hover:not(:disabled) {
+    &::before {
+      background-color: currentColor;
+      opacity: 0.1;
+      // transition: all 0.4s ease-out;
+    }
+  }
+
+  .q-icon,
+  .q-spinner {
+    font-size: $button-line-height;
+  }
+
+  &.disabled:not(.pmd-custom) {
+    opacity: 0.7 !important;
+    background: $gray-400 !important;
+    border-color: $gray-400 !important;
+    color: $gray-900 !important;
+    cursor: not-allowed;
+    &:hover {
+      background: $gray-400 !important;
+      border-color: $gray-400 !important;
+      color: $white;
+    }
+  }
+
+  &.pmd-custom {
+    &.disabled {
+      // box-shadow: 0 2px 20px 0 rgb(0 52 115 / 12%);
+      opacity: 0.65;
+      border: 2px solid #add2ff !important;
+      color: #add2ff !important;
+      cursor: not-allowed;
+      .x-btn__content {
+        .icon-pmd-accepted {
+          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='15.678' height='15.678' rx='7.839' fill='%23fff'/%3E%3Cpath d='M11.472 5.623a.976.976 0 00-1.38 0L6.915 8.8 5.83 7.714a.976.976 0 00-1.38 1.38l1.775 1.775a.973.973 0 001.38 0l3.867-3.867a.976.976 0 000-1.38z' fill='%23ADD2FF'/%3E%3Cpath d='M8 0C3.589 0 0 3.589 0 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zm0 16.049A6.056 6.056 0 011.951 8 6.056 6.056 0 018 1.951 6.056 6.056 0 0114.049 8 6.056 6.056 0 018 14.049z' fill='%23ADD2FF'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: 4px 4px;
+        }
+        .icon-pmd-rejected {
+          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='19' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.5 2.5l2-2h.5l8 13-1 2L1.5 15l-1-1.5 7-11z' fill='%23fff'/%3E%3Cpath d='M16.964 16H2.036C.913 16 0 15.103 0 14c0-.392.11-.759.319-1.065L7.767.96A2.024 2.024 0 019.5 0c.715 0 1.382.372 1.739.97l7.457 11.99c.194.281.304.648.304 1.04 0 1.103-.913 2-2.036 2zM9.5 1.455a.66.66 0 00-.567.31L1.763 13.63a.585.585 0 00-.105.346c0 .366.306.666.679.666h14.297c.373 0 .678-.3.678-.666a.557.557 0 00-.088-.32l-7.15-11.88a.665.665 0 00-.574-.32z' fill='%23ADD2FF'/%3E%3Cpath stroke='%23ADD2FF' stroke-width='1.5' stroke-linecap='round' d='M9.75 5.75v4.5'/%3E%3Ccircle cx='9.75' cy='12.75' r='.75' fill='%23ADD2FF'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: 0px 4px;
+        }
+        .icon-pmd-summon {
+          background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d)'%3E%3Crect x='4' y='2' width='19.5981' height='19.5981' rx='9.79904' fill='white'/%3E%3C/g%3E%3Cpath d='M14 2C8.48598 2 4 6.48598 4 12C4 17.514 8.48598 22 14 22C19.514 22 24 17.514 24 12C24 6.48598 19.514 2 14 2ZM14 19.561C9.83085 19.561 6.43902 16.1691 6.43902 12C6.43902 7.83085 9.83085 4.43902 14 4.43902C18.1691 4.43902 21.561 7.83085 21.561 12C21.561 16.1691 18.1691 19.561 14 19.561Z' fill='%23ADD2FF'/%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M19 12.1016C19 11.6977 18.7752 11.3489 18.4444 11.1596V8.54705C18.4444 8.39751 18.3233 8 17.8889 8C17.7653 8 17.6425 8.04067 17.542 8.11997L16.0658 9.28259C15.3243 9.86604 14.3934 10.1875 13.4444 10.1875H10.1111C9.4974 10.1875 9 10.6771 9 11.2812V12.9219C9 13.526 9.4974 14.0156 10.1111 14.0156H10.6962C10.672 14.1947 10.6583 14.3769 10.6583 14.5625C10.6583 15.2422 10.8191 15.8844 11.1021 16.4584C11.1922 16.6411 11.3889 16.75 11.5951 16.75H12.8847C13.337 16.75 13.6085 16.24 13.3344 15.8859C13.0497 15.5182 12.8804 15.0595 12.8804 14.5625C12.8804 14.3726 12.9085 14.1901 12.9569 14.0156H13.4444C14.3934 14.0156 15.3243 14.3371 16.0656 14.9205L17.5418 16.0832C17.6403 16.1607 17.7626 16.203 17.8887 16.2031C18.3214 16.2031 18.4443 15.8138 18.4443 15.6562V13.0437C18.7752 12.8542 19 12.5054 19 12.1016ZM17.3333 14.5184L16.7595 14.0666C15.822 13.3283 14.6444 12.9219 13.4444 12.9219V11.2812C14.6444 11.2812 15.822 10.8749 16.7595 10.1366L17.3333 9.68472V14.5184Z' fill='%23ADD2FF'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d' x='0' y='0' width='27.5981' height='27.5981' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='2'/%3E%3CfeGaussianBlur stdDeviation='2'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.160784 0 0 0 0 0.501961 0 0 0 0 0 0 0 0 0.12 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow' result='shape'/%3E%3C/filter%3E%3CclipPath id='clip0'%3E%3Crect width='10' height='8.75' fill='white' transform='translate(9 8)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: -4px 1px;
+        }
+      }
+    }
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: inherit;
+    // box-shadow: $button-shadow;
+  }
+
+  &.x-btn--actionable {
+    cursor: pointer;
+    &.x-btn--standard {
+      &:before {
+        // This places the button active raise shadow behind adjacent elements
+        // Active raise shadow will still be visible under adjacent transparent elements, this is ok and coherent with a desired transparency effect.
+        // Visible active raise shadow can be removed by specifying a background color to the button
+        // Visible active raise shadow can be removed by specifying a flat or outline button type
+        transition: box-shadow $button-transition;
+      }
+      &:active,
+      &.q-btn--active {
+        &:before {
+          box-shadow: $button-shadow-active;
+        }
+      }
+    }
+  }
+
+  &.x-btn--no-uppercase {
+    text-transform: none;
+  }
+
+  &.x-btn--rectangle {
+    border-radius: $button-border-radius;
+  }
+
+  &.no-border-radius {
+    border-radius: 0px !important;
+  }
+
+  &.x-btn--outline {
+    background: transparent !important;
+  }
+
+  &.x-btn--rounded {
+    border-radius: $button-rounded-border-radius;
+  }
+
+  &.x-btn--round {
+    border-radius: 50%;
+    padding: 0;
+    min-width: 3em;
+    min-height: 3em;
+  }
+
+  &.x-btn--flat,
+  &.x-btn--outline,
+  &.x-btn--unelevated {
+    &:before {
+      box-shadow: none;
+    }
+  }
+
+  &.x-btn--dense {
+    padding: $button-dense-padding;
+    min-height: 2em;
+
+    &.q-btn--round {
+      padding: 0;
+      min-height: 2.4em;
+      min-width: 2.4em;
+    }
+
+    .on-left {
+      margin-right: 6px;
+    }
+
+    .on-right {
+      margin-left: 6px;
+    }
+  }
+
+  &.x-btn--fab,
+  &.x-btn--fab-mini {
+    .q-icon {
+      font-size: 24px;
+    }
+  }
+
+  &.x-btn--fab {
+    padding: 16px;
+    min-height: 56px;
+    min-width: 56px;
+
+    .q-icon {
+      margin: auto;
+    }
+  }
+
+  &.x-btn--fab-mini {
+    padding: 8px;
+    min-height: 40px;
+    min-width: 40px;
+  }
+
+  .x-btn__content {
+    transition: opacity 0.3s;
+    z-index: 0;
+
+    &.x-btn__content--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}

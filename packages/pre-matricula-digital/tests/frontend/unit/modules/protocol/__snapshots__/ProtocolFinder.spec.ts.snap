@@ -1,0 +1,113 @@
+// Vitest Snapshot v1
+
+exports[`ProtocolFinder > should match snapshot 1`] = `
+<div>
+  <div
+    class="row"
+  >
+    <div
+      class="col-md-8 mt-5 offset-md-2"
+    >
+      <h2
+        class="font-muli-20-primary mb-4"
+      >
+         Identifique o(a) aluno(a) para encontrar o(s) protocolo(s): 
+      </h2>
+      <p
+        class="text-justify font-hind"
+      >
+         Selecione uma das opções abaixo para validar se o(a) 
+        <strong>
+          aluno(a)
+        </strong>
+         já possui alguma inscrição de pré-matrícula. Caso não seja possível identificá-lo com a opção selecionada, você pode escolher outro campo para validar a existência de protocolo(s). 
+      </p>
+      <div
+        class="mt-5"
+      >
+        <button
+          class="btn btn-block btn-outline-primary mb-2"
+          data-test="btn-1"
+          type="button"
+        >
+          <span
+            class="text-uppercase font-weight-lighter font-hind"
+            style="font-size: 16px;"
+          >
+             CPF do(a) aluno(a) 
+          </span>
+        </button>
+        <button
+          class="btn btn-block btn-outline-primary mb-2"
+          data-test="btn-2"
+          type="button"
+        >
+          <span
+            class="text-uppercase font-weight-lighter font-hind"
+            style="font-size: 16px;"
+          >
+             RG do(a) aluno(a) 
+          </span>
+        </button>
+        <button
+          class="btn btn-block btn-outline-primary mb-2"
+          data-test="btn-3"
+          type="button"
+        >
+          <span
+            class="text-uppercase font-weight-lighter font-hind"
+            style="font-size: 16px;"
+          >
+             Certidão de nascimento do(a) aluno(a) 
+          </span>
+        </button>
+        <button
+          class="btn btn-block btn-outline-primary mb-2"
+          data-test="btn-4"
+          type="button"
+        >
+          <span
+            class="text-uppercase font-weight-lighter font-hind"
+            style="font-size: 16px;"
+          >
+             Nome e data de nascimento do(a) aluno(a) 
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="d-flex justify-content-md-center mt-5 row"
+  >
+    <div
+      class="col-md-3"
+    >
+      <button
+        class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-gray-500 border-gray-500 x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+        data-test="btn-back"
+        role="button"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+        >
+          <span
+            class="block"
+          >
+            Voltar
+          </span>
+        </span>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="x-transition--fade"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+      </button>
+    </div>
+  </div>
+</div>
+`;

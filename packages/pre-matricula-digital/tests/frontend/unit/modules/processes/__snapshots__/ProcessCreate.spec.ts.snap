@@ -1,0 +1,664 @@
+// Vitest Snapshot v1
+
+exports[`ProcessCreate > should match snapshot 1`] = `
+<main
+  class="container"
+  style="max-width: 740px;"
+>
+  <h2
+    class="font-muli-20-primary"
+  >
+    Crie o processo de pré-matrícula
+  </h2>
+  <p>
+     Crie o processo de pré-matrícula que deseja liberar para o seu município. Escolha um nome, para qual ano as pré-matrículas serão válidas, selecione as séries que participarão desse processo e os turnos que deseja liberar. 
+  </p>
+  <!--v-if-->
+  <div>
+    <form
+      autocomplete="off"
+      class="row"
+    >
+      
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12 col-md-8"
+        errors="false"
+        label="Nome do Processo"
+        loading="false"
+        name="name"
+        options=""
+        rules="required"
+        searchable="false"
+        type="TEXT"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12 col-md-4"
+        errors="false"
+        label="Ano Letivo"
+        loading="false"
+        name="schoolYear"
+        options="[object Object],[object Object],[object Object]"
+        rules="required"
+        searchable="false"
+        type="SELECT"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Grupo do processo"
+        loading="false"
+        name="grouper"
+        options=""
+        searchable="false"
+        type="SELECT"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Mensagem de Rodapé"
+        loading="false"
+        modelvalue="Acompanhe a publicação do resultado classificatório e convocação no site da Prefeitura."
+        name="messageFooter"
+        options=""
+        rules=""
+        searchable="false"
+        type="RICH_TEXT"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="URL do arquivo com orientações de séries por faixa etária"
+        loading="false"
+        name="gradeAgeRangeLink"
+        options=""
+        rules=""
+        searchable="false"
+        type="TEXT"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Limite de inscrições em lista de espera"
+        loading="false"
+        modelvalue="1"
+        name="waitingListLimit"
+        options=""
+        rules=""
+        searchable="false"
+        type="NUMBER"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        description="Após deferir uma inscrição será feito o indeferimento automático de todas as outras inscrições do mesmo CPF."
+        errors="false"
+        label="Indeferimento automático"
+        loading="false"
+        modelvalue="NO_REJECT"
+        name="rejectType"
+        options="[object Object],[object Object],[object Object]"
+        rules=""
+        searchable="false"
+        type="SELECT"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Idade mínima (em dias)"
+        loading="false"
+        name="minimumAge"
+        options=""
+        rules=""
+        searchable="false"
+        type="NUMBER"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Apresentar período na tela inicial de inscrições"
+        loading="false"
+        modelvalue="true"
+        name="active"
+        options=""
+        rules=""
+        searchable="false"
+        sublabel="Quando marcado apresentará o período na tela inicial de inscrição independente da situação"
+        type="CHECKBOX"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Apresentar posição do(a) aluno(a) no protocolo"
+        loading="false"
+        modelvalue="false"
+        name="showPriorityProtocol"
+        options=""
+        rules=""
+        searchable="false"
+        sublabel="Quando marcado apresentará a posição do(a) aluno(a) no protocolo (inscrição e consulta)"
+        type="CHECKBOX"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Apresentar consulta da lista de espera do processo na tela inicial"
+        loading="false"
+        modelvalue="false"
+        name="showWaitingList"
+        options=""
+        rules=""
+        searchable="false"
+        sublabel="Quando marcado, divulgará publicamente a lista de espera e critérios conforme a Lei 14.685/2023"
+        type="CHECKBOX"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Critérios utilizados para priorização do processo"
+        loading="false"
+        name="criteria"
+        options=""
+        rules=""
+        searchable="false"
+        type="RICH_TEXT"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Preencher automaticamente a série com base na data corte e faixa etária do(a) aluno(a)"
+        loading="false"
+        modelvalue="false"
+        name="forceSuggestedGrade"
+        options=""
+        rules=""
+        searchable="false"
+        sublabel="Quando marcado o campo série será preenchido automaticamente com base na data corte e data de nascimento do(a) aluno(a)"
+        type="CHECKBOX"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Permitir o(a) responsável selecionar no mapa o endereço"
+        loading="false"
+        modelvalue="false"
+        name="allowResponsibleSelectMapAddress"
+        options=""
+        rules=""
+        searchable="false"
+        sublabel="Quando marcado o(a) responsável poderá selecionar o endereço manualmente pelo mapa"
+        type="CHECKBOX"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Bloquear inscrição quando a idade do(a) aluno(a) não for compatível com a faixa etária das séries ofertadas"
+        loading="false"
+        modelvalue="false"
+        name="blockIncompatibleAgeGroup"
+        options=""
+        rules=""
+        searchable="false"
+        sublabel="Quando marcado não permitirá o(a) responsável concluir a inscrição caso a idade do(a) aluno(a) não seja compatível com a faixa etária de nenhuma das séries disponíveis no processo"
+        type="CHECKBOX"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Permitir apenas uma inscrição por ano"
+        loading="false"
+        modelvalue="false"
+        name="onePerYear"
+        options=""
+        rules=""
+        searchable="false"
+        sublabel="Quando marcado não irá permitir que o aluno tenha mais de uma inscrição em aberto durante o ano do processo"
+        type="CHECKBOX"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Indeferir automaticamente inscrições por prazo"
+        loading="false"
+        modelvalue="false"
+        name="autoRejectByDays"
+        options=""
+        rules=""
+        searchable="false"
+        sublabel="Quando marcado irá indeferir inscrições que tenham superado o número de dias na situação \\"Em convocação\\""
+        type="CHECKBOX"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Número de dias para o indeferimento"
+        loading="false"
+        name="autoRejectDays"
+        options=""
+        rules="max_value:99"
+        searchable="false"
+        type="NUMBER"
+      />
+      <x-field-stub
+        allowclear="false"
+        bind="[object Object]"
+        containerclass="col-12"
+        errors="false"
+        label="Selecionar as escolas que farão parte do processo"
+        loading="false"
+        modelvalue="false"
+        name="selectedSchools"
+        options=""
+        rules=""
+        searchable="false"
+        sublabel="Quando marcado apenas as escolas selecionas terão suas vagas disponibilizadas no processo"
+        type="CHECKBOX"
+      />
+      
+      
+      <div
+        class="col-12"
+      >
+        <div
+          class="row"
+        >
+          <!--v-if-->
+          <!--v-if-->
+          <div
+            class="col-12"
+          >
+            <p
+              class="border-bottom mt-5 pb-3"
+            >
+               Selecione as séries que deseja incluir nesse processo de inscrição 
+            </p>
+          </div>
+          <div
+            class="col-12"
+          >
+            
+            
+            <div>
+              <h4
+                class="m-0"
+              >
+                ENSINO FUNDAMENTAL - 1º A 5º
+              </h4>
+              <div
+                class="row"
+              >
+                
+                <div
+                  class="col-12 col-md-6 mb-3"
+                >
+                  <label
+                    class="toggle-checkbox"
+                  >
+                    <field-stub
+                      as="input"
+                      bails="true"
+                      modelmodifiers="[object Object]"
+                      modelvalue="Symbol(Default empty value)"
+                      name="grades"
+                      rules="required"
+                      standalone="false"
+                      type="checkbox"
+                      validateonmount="false"
+                      value="22"
+                    />
+                    <div
+                      class="toggle-text"
+                    >
+                      1º Ano
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="col-12 col-md-6 mb-3"
+                >
+                  <label
+                    class="toggle-checkbox"
+                  >
+                    <field-stub
+                      as="input"
+                      bails="true"
+                      modelmodifiers="[object Object]"
+                      modelvalue="Symbol(Default empty value)"
+                      name="grades"
+                      rules="required"
+                      standalone="false"
+                      type="checkbox"
+                      validateonmount="false"
+                      value="40"
+                    />
+                    <div
+                      class="toggle-text"
+                    >
+                      2º Ano
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="col-12 col-md-6 mb-3"
+                >
+                  <label
+                    class="toggle-checkbox"
+                  >
+                    <field-stub
+                      as="input"
+                      bails="true"
+                      modelmodifiers="[object Object]"
+                      modelvalue="Symbol(Default empty value)"
+                      name="grades"
+                      rules="required"
+                      standalone="false"
+                      type="checkbox"
+                      validateonmount="false"
+                      value="6"
+                    />
+                    <div
+                      class="toggle-text"
+                    >
+                      3º Ano
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="col-12 col-md-6 mb-3"
+                >
+                  <label
+                    class="toggle-checkbox"
+                  >
+                    <field-stub
+                      as="input"
+                      bails="true"
+                      modelmodifiers="[object Object]"
+                      modelvalue="Symbol(Default empty value)"
+                      name="grades"
+                      rules="required"
+                      standalone="false"
+                      type="checkbox"
+                      validateonmount="false"
+                      value="36"
+                    />
+                    <div
+                      class="toggle-text"
+                    >
+                      4º Ano
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="col-12 col-md-6 mb-3"
+                >
+                  <label
+                    class="toggle-checkbox"
+                  >
+                    <field-stub
+                      as="input"
+                      bails="true"
+                      modelmodifiers="[object Object]"
+                      modelvalue="Symbol(Default empty value)"
+                      name="grades"
+                      rules="required"
+                      standalone="false"
+                      type="checkbox"
+                      validateonmount="false"
+                      value="14"
+                    />
+                    <div
+                      class="toggle-text"
+                    >
+                      5º Ano
+                    </div>
+                  </label>
+                </div>
+                
+              </div>
+            </div>
+            
+            
+            <error-message-stub
+              class="validator-rule-error"
+              name="grades"
+            />
+          </div>
+          <div
+            class="col-12"
+          >
+            <p
+              class="border-bottom mt-5 pb-3"
+            >
+               Selecione os turnos que deseja utilizar nesse processo 
+            </p>
+          </div>
+          <div
+            class="col-12"
+          >
+            <div
+              class="row"
+            >
+              
+              <div
+                class="col-12 col-md-6 mb-3"
+              >
+                <label
+                  class="toggle-checkbox"
+                >
+                  <field-stub
+                    as="input"
+                    bails="true"
+                    modelmodifiers="[object Object]"
+                    modelvalue="Symbol(Default empty value)"
+                    name="periods"
+                    rules="required"
+                    standalone="false"
+                    type="checkbox"
+                    validateonmount="false"
+                    value="4"
+                  />
+                  <div
+                    class="toggle-text"
+                  >
+                    Integral
+                  </div>
+                </label>
+              </div>
+              <div
+                class="col-12 col-md-6 mb-3"
+              >
+                <label
+                  class="toggle-checkbox"
+                >
+                  <field-stub
+                    as="input"
+                    bails="true"
+                    modelmodifiers="[object Object]"
+                    modelvalue="Symbol(Default empty value)"
+                    name="periods"
+                    rules="required"
+                    standalone="false"
+                    type="checkbox"
+                    validateonmount="false"
+                    value="1"
+                  />
+                  <div
+                    class="toggle-text"
+                  >
+                    Matutino
+                  </div>
+                </label>
+              </div>
+              <div
+                class="col-12 col-md-6 mb-3"
+              >
+                <label
+                  class="toggle-checkbox"
+                >
+                  <field-stub
+                    as="input"
+                    bails="true"
+                    modelmodifiers="[object Object]"
+                    modelvalue="Symbol(Default empty value)"
+                    name="periods"
+                    rules="required"
+                    standalone="false"
+                    type="checkbox"
+                    validateonmount="false"
+                    value="3"
+                  />
+                  <div
+                    class="toggle-text"
+                  >
+                    Noturno
+                  </div>
+                </label>
+              </div>
+              <div
+                class="col-12 col-md-6 mb-3"
+              >
+                <label
+                  class="toggle-checkbox"
+                >
+                  <field-stub
+                    as="input"
+                    bails="true"
+                    modelmodifiers="[object Object]"
+                    modelvalue="Symbol(Default empty value)"
+                    name="periods"
+                    rules="required"
+                    standalone="false"
+                    type="checkbox"
+                    validateonmount="false"
+                    value="2"
+                  />
+                  <div
+                    class="toggle-text"
+                  >
+                    Vespertino
+                  </div>
+                </label>
+              </div>
+              
+              <div
+                class="col-12"
+              >
+                <error-message-stub
+                  class="validator-rule-error"
+                  name="periods"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div
+        class="col-12"
+      >
+        <div
+          class="row mt-5"
+        >
+          
+          <div
+            class="offset-md-3 col-md-3"
+          >
+            <button
+              class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-gray-500 border-gray-500 x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+              data-test="back-button"
+              role="button"
+              style="font-size: 20px;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+              >
+                <span
+                  class="block"
+                >
+                  Voltar
+                </span>
+              </span>
+              <transition-stub
+                appear="false"
+                css="true"
+                name="x-transition--fade"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+            </button>
+          </div>
+          <div
+            class="col-md-3 mt-3 mt-md-0"
+          >
+            <button
+              class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase btn btn-block btn-primary w-100 h-100 flex-row justify-content-center"
+              data-test="submit-button"
+              disabled="false"
+              role="button"
+              style="font-size: 20px;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+              >
+                <span
+                  class="block"
+                >
+                  Prosseguir
+                </span>
+              </span>
+              <transition-stub
+                appear="false"
+                css="true"
+                name="x-transition--fade"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+`;

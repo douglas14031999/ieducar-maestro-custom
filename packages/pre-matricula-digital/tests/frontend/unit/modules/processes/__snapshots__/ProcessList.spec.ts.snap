@@ -1,0 +1,90 @@
+// Vitest Snapshot v1
+
+exports[`ProcessList > should match snapshot 1`] = `
+<main>
+  <div
+    class="d-flex justify-content-between"
+  >
+    <h1>
+      Processos
+    </h1>
+    <button
+      class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase flex-row"
+      data-test="new-process-button"
+      role="button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+      >
+        <span
+          class="block"
+        >
+          Criar novo processo
+        </span>
+      </span>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="x-transition--fade"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+    </button>
+  </div>
+  <div
+    class="mb-4 mt-4"
+  >
+    <div
+      class="x-card x-card--flat no-shadow bg-primary"
+    >
+      <x-card-section-stub
+        class="pl-2 pr-2"
+        horizontal="false"
+        tag="div"
+      />
+    </div>
+  </div>
+  <div
+    class="row"
+  >
+    
+    <div
+      class="col-12 col-md-6 mt-4"
+      data-test="process-block"
+    >
+      <div
+        class="d-flex justify-content-between"
+      >
+        <router-link-stub
+          class="text-truncate h4 text-blue-dark"
+          to="[object Object]"
+        />
+        <!--v-if-->
+      </div>
+      
+      <div
+        class="x-card x-card--bordered x-card--hover mb-3"
+        data-test="stage-card"
+      >
+        <x-card-section-stub
+          class="pb-0"
+          horizontal="false"
+          tag="div"
+        />
+        <x-card-section-stub
+          class="pt-0"
+          horizontal="false"
+          tag="div"
+        />
+      </div>
+      
+      <!--v-if-->
+    </div>
+    
+    <!--v-if-->
+  </div>
+</main>
+`;

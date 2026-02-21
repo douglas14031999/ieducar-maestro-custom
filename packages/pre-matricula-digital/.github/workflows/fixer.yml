@@ -1,0 +1,65 @@
+name: Fixer
+
+on:
+  push:
+    branches:
+      - 2.*
+      - main
+
+jobs:
+
+  ci:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [22]
+
+    name: Style code fixer
+
+    steps:
+
+      - name: ✅ Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: ✅ PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+
+      - name: 🥇 Checkout pre-matricula
+        uses: actions/checkout@v3
+
+      - name: 💾 Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package.json')) }}
+
+      - name: 🐈 Yarn
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile --ignore-engines --non-interactive --silent
+
+      - name: Composer
+        run: composer install
+
+      - name: Style code fixer
+        run: composer format
+        env:
+          COMPOSER_ALLOW_SUPERUSER: 1
+
+      - name: ESLint code fixer
+        run: yarn eslint --fix
+
+      - name: Style code fixer
+        run: yarn prettier
+
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Style code

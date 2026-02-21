@@ -1,0 +1,24 @@
+type Classroom {
+  id: ID!
+  period: Period! @belongsTo
+  school: School! @belongsTo
+  grade: Grade! @belongsTo
+  schoolYear: SchoolYear! @belongsTo
+  name: String!
+  vacancy: Int!
+  available: Int! @rename(attribute: "available_vacancies")
+}
+
+extend type Query @guard {
+  """
+  Lista as turmas.
+  """
+  classrooms: [Classroom!]! @paginate
+
+  classroomsByPreregistration(
+    period: ID @eq(key: "period_id")
+    school: ID! @eq(key: "school_id")
+    grade: ID! @eq(key: "grade_id")
+    year: Int @eq(key: "school_year_id")
+  ): [Classroom!]! @paginate(scopes: ["available"])
+}

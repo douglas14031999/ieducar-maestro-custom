@@ -1,0 +1,11 @@
+// Vitest Snapshot v1
+
+exports[`Login > should match snapshot 1`] = `
+<main>
+  <div
+    class="text-center"
+  >
+    Logando..
+  </div>
+</main>
+`;

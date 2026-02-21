@@ -1,0 +1,16 @@
+.shadow-transition {
+  transition: $shadow-transition !important;
+}
+
+.shadow-2 {
+  box-shadow: $shadow-2;
+}
+
+.shadow-5 {
+  box-shadow: $shadow-5;
+}
+
+.no-shadow,
+.shadow-0 {
+  box-shadow: none !important;
+}

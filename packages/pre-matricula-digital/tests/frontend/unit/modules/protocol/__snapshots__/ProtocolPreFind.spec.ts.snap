@@ -1,0 +1,74 @@
+// Vitest Snapshot v1
+
+exports[`ProtocolPreFind > should match snapshot 1`] = `
+<div
+  class="col-md-8 mt-5 offset-md-2"
+>
+  <h2
+    class="font-muli-20-primary mb-4"
+  >
+     Identifique o(a) aluno(a) para encontrar o(s) protocolo(s): 
+  </h2>
+  <p
+    class="text-justify font-hind"
+  >
+     Selecione uma das opções abaixo para validar se o(a) 
+    <strong>
+      aluno(a)
+    </strong>
+     já possui alguma inscrição de pré-matrícula. Caso não seja possível identificá-lo com a opção selecionada, você pode escolher outro campo para validar a existência de protocolo(s). 
+  </p>
+  <div
+    class="mt-5"
+  >
+    <button
+      class="btn btn-block btn-outline-primary mb-2"
+      data-test="btn-1"
+      type="button"
+    >
+      <span
+        class="text-uppercase font-weight-lighter font-hind"
+        style="font-size: 16px;"
+      >
+         CPF do(a) aluno(a) 
+      </span>
+    </button>
+    <button
+      class="btn btn-block btn-outline-primary mb-2"
+      data-test="btn-2"
+      type="button"
+    >
+      <span
+        class="text-uppercase font-weight-lighter font-hind"
+        style="font-size: 16px;"
+      >
+         RG do(a) aluno(a) 
+      </span>
+    </button>
+    <button
+      class="btn btn-block btn-outline-primary mb-2"
+      data-test="btn-3"
+      type="button"
+    >
+      <span
+        class="text-uppercase font-weight-lighter font-hind"
+        style="font-size: 16px;"
+      >
+         Certidão de nascimento do(a) aluno(a) 
+      </span>
+    </button>
+    <button
+      class="btn btn-block btn-outline-primary mb-2"
+      data-test="btn-4"
+      type="button"
+    >
+      <span
+        class="text-uppercase font-weight-lighter font-hind"
+        style="font-size: 16px;"
+      >
+         Nome e data de nascimento do(a) aluno(a) 
+      </span>
+    </button>
+  </div>
+</div>
+`;

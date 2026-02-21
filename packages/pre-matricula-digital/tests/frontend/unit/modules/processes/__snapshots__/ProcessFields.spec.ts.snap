@@ -1,0 +1,145 @@
+// Vitest Snapshot v1
+
+exports[`ProcessFields > should match snapshot 1`] = `
+<main
+  class="container"
+  style="max-width: 740px;"
+>
+  <h2
+    class="font-muli-20-primary"
+  >
+     Escolha os campos solicitados no processo de pré-matrícula 
+  </h2>
+  <p>
+     Sabendo que os campos obrigatórios do sistema já estão inclusos, selecione os campos criados que deseja inserir no formulário desse processo de pré-matrícula. 
+  </p>
+  <p>
+    Você pode alterar a ordem dos campos, basta arrastá-los.
+  </p>
+  <!--v-if-->
+  <p
+    class="border-bottom mt-5 pb-3"
+  >
+     Dados do(a) responsável 
+  </p>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 col-md-6 can-drag mb-3"
+      data-draggable="true"
+    >
+      <label
+        class="toggle-checkbox"
+      >
+        <input
+          checked=""
+          disabled=""
+          type="checkbox"
+          value="1"
+        />
+        <div
+          class="toggle-required toggle-text text-break overflow-hidden"
+        >
+          Nome do(a) responsável
+        </div>
+      </label>
+      <!--v-if-->
+    </div>
+  </div>
+  <p
+    class="border-bottom mt-5 pb-3"
+  >
+     Dados do(a) aluno(a) 
+  </p>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 col-md-6 can-drag mb-3"
+      data-draggable="true"
+    >
+      <label
+        class="toggle-checkbox"
+      >
+        <input
+          checked=""
+          disabled=""
+          type="checkbox"
+          value="9"
+        />
+        <div
+          class="toggle-required toggle-text text-break overflow-hidden"
+        >
+          Nome
+        </div>
+      </label>
+      <!--v-if-->
+    </div>
+  </div>
+  <div
+    class="row mt-5"
+  >
+    <div
+      class="offset-md-3 col-md-3"
+    >
+      <button
+        class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-gray-500 border-gray-500 x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+        data-test="button-back"
+        role="button"
+        style="font-size: 20px;"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+        >
+          <span
+            class="block"
+          >
+            Voltar
+          </span>
+        </span>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="x-transition--fade"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+      </button>
+    </div>
+    <div
+      class="col-md-3 mt-3 mt-md-0"
+    >
+      <button
+        class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100 h-100 flex-row justify-content-center"
+        data-test="button-proceed"
+        role="button"
+        style="font-size: 20px;"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+        >
+          <span
+            class="block"
+          >
+            Prosseguir
+          </span>
+        </span>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="x-transition--fade"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+      </button>
+    </div>
+  </div>
+</main>
+`;

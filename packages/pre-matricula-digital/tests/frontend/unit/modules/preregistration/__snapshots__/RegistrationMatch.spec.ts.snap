@@ -1,0 +1,55 @@
+// Vitest Snapshot v1
+
+exports[`RegistrationMatch > should match snapshot 1`] = `
+<div>
+  <h2
+    class="font-muli-20-primary mb-4"
+  >
+     Identifique o(a) aluno(a) para continuar com a inscrição: 
+  </h2>
+  <p>
+     Preencha os dados abaixo para identificar o(a) 
+    <strong>
+      aluno(a)
+    </strong>
+     que será rematriculado(a). 
+  </p>
+  <div
+    class="row mt-5"
+  >
+    <x-field-stub
+      allowclear="false"
+      bind="[object Object]"
+      containerclass="col-12 col-md-6"
+      disabled="false"
+      errors="false"
+      label="Nome do(a) aluno(a)"
+      loading="false"
+      name="student_name"
+      options=""
+      rules="required"
+      searchable="false"
+      type="TEXT"
+    />
+    <x-field-stub
+      allowclear="false"
+      bind="[object Object]"
+      containerclass="col-12 col-md-6"
+      disabled="false"
+      errors="false"
+      label="Data de nascimento do(a) aluno(a)"
+      loading="false"
+      modelvalue="string"
+      name="student_date_of_birth"
+      options=""
+      rules="required|date"
+      searchable="false"
+      type="DATE"
+    />
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</div>
+`;

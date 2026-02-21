@@ -1,0 +1,230 @@
+// Vitest Snapshot v1
+
+exports[`StudentFields > should match snapshot 1`] = `
+<div>
+  <h2
+    class="font-muli-20-primary mb-4"
+  >
+     Preencha o formulário abaixo para criar sua inscrição: 
+  </h2>
+  <p>
+     Preencha os campos abaixo para identificar os dados do(a) aluno(a). Os campos com asterisco (*) são de preenchimento 
+    <strong>
+      obrigatório
+    </strong>
+     para prosseguir com a inscrição. 
+  </p>
+  <hr
+    class="mt-5 mb-5"
+  />
+  <div
+    class="mb-3 d-flex justify-content-between"
+  >
+    <h3
+      class="font-hind-18-primary"
+    >
+      Dados do(a) aluno(a)
+    </h3>
+    <button
+      class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase border-danger text-danger flex-row"
+      data-test="clear-student-data"
+      role="button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+      >
+        <span
+          class="block"
+        >
+          Limpar dados
+        </span>
+      </span>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="x-transition--fade"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+    </button>
+  </div>
+  <div
+    class="row"
+  >
+    
+    
+  </div>
+  <h3
+    class="mt-4 font-hind-18-primary"
+  >
+    Dados da pré-matrícula
+  </h3>
+  <p
+    class="text-muted"
+  >
+    <span>
+       Informe a 
+      <strong>
+        série
+      </strong>
+      , 
+      <strong>
+        turno
+      </strong>
+       e a 
+      <strong>
+        escola
+      </strong>
+       que deseja realizar a inscrição de pré-matrícula para o(a) aluno(a). 
+    </span>
+    <span>
+       Caso a escola pretendida 
+      <strong>
+        não possua vagas disponíveis
+      </strong>
+      , você pode definir a mesma na opção 'Selecionar uma escola para aguardar na lista de espera'. 
+    </span>
+  </p>
+  <!--v-if-->
+  <!--v-if-->
+  <div
+    class="row"
+  >
+    <x-field-stub
+      allowclear="false"
+      bind="[object Object]"
+      containerclass="col-12 col-md-6"
+      disabled="false"
+      errors="false"
+      label="Série"
+      loading="false"
+      modelvalue="22"
+      name="grade"
+      options="[object Object]"
+      rules="required"
+      searchable="false"
+      type="SELECT"
+    />
+    <x-field-stub
+      allowclear="false"
+      bind="[object Object]"
+      containerclass="col-12 col-md-6"
+      disabled="false"
+      errors="false"
+      label="Turno"
+      loading="false"
+      name="period"
+      options="[object Object]"
+      rules="required"
+      searchable="false"
+      type="SELECT"
+    />
+    <div
+      class="col-12"
+    >
+      <div
+        class="alert alert-info"
+      >
+        Série(s) identificada(s) como correspondente(s) com a faixa etária do(a) aluno(a): 1º Ano
+      </div>
+    </div>
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+    
+    <x-field-stub
+      allowclear="false"
+      bind="[object Object]"
+      containerclass="col-12 mt-3"
+      disabled="false"
+      errors="false"
+      label="Escola"
+      loading="false"
+      name="school"
+      options="[object Object]"
+      rules="required"
+      searchable="false"
+      type="SELECT"
+    />
+    <div
+      class="col-12 mt-3 mb-3"
+      old-address-postition="[object Object]"
+    >
+      <div
+        class="row"
+      >
+        <!--v-if-->
+        
+        <div
+          class="col-12"
+        >
+          <div
+            class="x-card x-card--bordered"
+          >
+            <google-maps-stub
+              config="[object Object]"
+              lat="1"
+              lng="1"
+              style="height: 400px;"
+              tabindex="-1"
+              zoom="13"
+            />
+          </div>
+        </div>
+        
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </div>
+    
+    <div
+      class="col-12 mt-5"
+    >
+      <button
+        class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+        role="button"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+        >
+          <span
+            class="block"
+          >
+            Selecionar uma escola para aguardar na lista de espera
+          </span>
+        </span>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="x-transition--fade"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+      </button>
+    </div>
+    <!--v-if-->
+    <x-field-stub
+      allowclear="false"
+      bind="[object Object]"
+      containerclass="hidden"
+      disabled="false"
+      errors="false"
+      loading="false"
+      name="atLeastOneSchool"
+      options=""
+      rules="required"
+      searchable="false"
+      style="display: none;"
+      type="TEXT"
+    />
+  </div>
+</div>
+`;

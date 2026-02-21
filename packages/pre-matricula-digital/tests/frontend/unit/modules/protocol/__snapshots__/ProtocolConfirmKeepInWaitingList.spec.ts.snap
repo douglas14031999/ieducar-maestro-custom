@@ -1,0 +1,26 @@
+// Vitest Snapshot v1
+
+exports[`ProtocolConfirmKeepInWaitingList > should match snapshot 1`] = `
+<modal-stub
+  bodyclass=""
+  fullwidth="false"
+  iconleft=""
+  iconright=""
+  initialloading="false"
+  isoverflowvisible="false"
+  large="false"
+  loadinginputs="false"
+  loadingtext="false"
+  maximized="false"
+  modelvalue="true"
+  nofooter="false"
+  noheader="false"
+  overflowvisible="false"
+  persistent="false"
+  position="standard"
+  seamless="false"
+  title="Deseja continuar na lista?"
+  titleclass="font-hind-18-primary text-primary"
+  tooltipicon=""
+/>
+`;

@@ -1,0 +1,13 @@
+dist
+src
+graphql
+database
+config
+resources/views
+coverage
+composer.json
+README.md
+phpunit.xml
+yarn.lock
+tests/frontend/**/*.spec.ts.snap
+vendor

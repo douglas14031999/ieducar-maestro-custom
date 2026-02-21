@@ -1,0 +1,82 @@
+// Vitest Snapshot v1
+
+exports[`AddressFields > should match snapshot 1`] = `
+<div
+  class="row"
+>
+  <x-field-stub
+    allowclear="false"
+    bind="[object Object]"
+    containerclass="form-group col-sm-6"
+    disabled="false"
+    errors="false"
+    label="CEP"
+    loading="false"
+    modelvalue="00000-000"
+    name=".postalCode"
+    options=""
+    rules="required|postal_code"
+    searchable="false"
+    type="CEP"
+  />
+  <x-field-stub
+    allowclear="false"
+    bind="[object Object]"
+    containerclass="form-group col-sm-9"
+    disabled="false"
+    errors="false"
+    label="Endereço"
+    loading="false"
+    modelvalue="string"
+    name=".address"
+    options=""
+    rules="required"
+    searchable="false"
+    type="TEXT"
+  />
+  <x-field-stub
+    allowclear="false"
+    bind="[object Object]"
+    containerclass="form-group col-sm-3"
+    disabled="false"
+    errors="false"
+    label="Número"
+    loading="false"
+    modelvalue="string"
+    name=".number"
+    options=""
+    rules="required"
+    searchable="false"
+    type="TEXT"
+  />
+  <x-field-stub
+    allowclear="false"
+    bind="[object Object]"
+    containerclass="form-group col-sm-6"
+    disabled="false"
+    errors="false"
+    label="Complemento"
+    loading="false"
+    modelvalue="string"
+    name=".complement"
+    options=""
+    searchable="false"
+    type="TEXT"
+  />
+  <x-field-stub
+    allowclear="false"
+    bind="[object Object]"
+    containerclass="form-group col-sm-6"
+    disabled="false"
+    errors="false"
+    label="Bairro"
+    loading="false"
+    modelvalue="string"
+    name=".neighborhood"
+    options=""
+    rules="required"
+    searchable="false"
+    type="TEXT"
+  />
+</div>
+`;

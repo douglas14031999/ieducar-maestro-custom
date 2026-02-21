@@ -1,0 +1,16 @@
+extend type Query @guard {
+  user(id: ID! @eq): User! @find
+  users: [User!]! @paginate
+}
+
+type UserType {
+  id: ID!
+  name: String!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  userType: UserType
+}

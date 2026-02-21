@@ -1,0 +1,18 @@
+type City {
+  id: ID!
+  name: String!
+  state: State @belongsTo
+}
+
+type State {
+  id: ID!
+  name: String!
+  abbreviation: String!
+}
+
+extend type Query @guard(with: ["web", "sanctum", "prematricula"]) {
+  cities(
+    search: String @slug @scope(name: "searchCity")
+    orderBy: [OrderByClause!] @orderBy
+  ): [City!]! @paginate
+}

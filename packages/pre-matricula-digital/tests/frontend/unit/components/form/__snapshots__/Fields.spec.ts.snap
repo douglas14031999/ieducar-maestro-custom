@@ -1,0 +1,24 @@
+// Vitest Snapshot v1
+
+exports[`Fields > should match snapshot 1`] = `
+<div
+  class="row"
+>
+  
+  <x-field-stub
+    allowclear="false"
+    bind="[object Object]"
+    containerclass="[object Object]"
+    disabled="false"
+    errors="false"
+    label="string"
+    loading="false"
+    name="string"
+    options=""
+    rules=""
+    searchable="false"
+    type="TEXT"
+  />
+  
+</div>
+`;

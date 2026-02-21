@@ -1,0 +1,31 @@
+extend type Query @guard(with: ["web", "sanctum", "prematricula"]) {
+
+  """
+  Lista todos os avisos.
+  """
+  notices: [Notice!]! @paginate
+
+  notice(id: ID @eq): Notice @find
+
+}
+
+extend type Mutation @guard {
+
+  saveNotice(
+    input: NoticeInput! @spread
+  ): Notice!
+
+  deleteNotice(
+    id: ID! @whereKey
+  ): Notice! @delete
+}
+
+type Notice {
+  id: ID!
+  text: String!
+}
+
+input NoticeInput {
+  id: ID
+  text: String!
+}

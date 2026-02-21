@@ -1,0 +1,198 @@
+.x-skeleton {
+  background: $separator-color;
+  border-radius: $border-radius;
+
+  &.x-skeleton--anim {
+    cursor: wait;
+  }
+
+  box-sizing: border-box;
+
+  &:before {
+    content: "\00a0";
+  }
+
+  &.x-skeleton--type-text {
+    transform: scale(1, 0.5);
+  }
+
+  &.x-skeleton--type-circle,
+  &.x-skeleton--type-avatar {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+  }
+
+  &.x-skeleton--type-btn {
+    width: 90px;
+    height: 36px;
+  }
+
+  &.x-skeleton--type-badge {
+    width: 70px;
+    height: 16px;
+  }
+
+  &.x-skeleton--type-chip {
+    width: 90px;
+    height: 28px;
+    border-radius: 16px;
+  }
+
+  &.x-skeleton--type-toolbar {
+    height: 50px;
+  }
+
+  &.x-skeleton--type-checkbox,
+  &.x-skeleton--type-radio {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &.x-skeleton--type-toggle {
+    width: 56px;
+    height: 40px;
+    border-radius: 7px;
+  }
+
+  &.x-skeleton--type-slider,
+  &.x-skeleton--type-range {
+    height: 40px;
+  }
+
+  &.x-skeleton--type-input {
+    height: 56px;
+  }
+
+  &.x-skeleton--bordered {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  &.x-skeleton--square {
+    border-radius: 0;
+  }
+
+  &.x-skeleton--anim-fade {
+    animation: x-skeleton--fade 1.5s linear 0.5s infinite;
+  }
+
+  &.x-skeleton--anim-pulse {
+    animation: x-skeleton--pulse 1.5s ease-in-out 0.5s infinite;
+  }
+  &.x-skeleton--anim-pulse-x {
+    animation: x-skeleton--pulse-x 1.5s ease-in-out 0.5s infinite;
+  }
+  &.x-skeleton--anim-pulse-y {
+    animation: x-skeleton--pulse-y 1.5s ease-in-out 0.5s infinite;
+  }
+
+  &.x-skeleton--anim-wave,
+  &.x-skeleton--anim-blink,
+  &.x-skeleton--anim-pop {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
+
+  &.x-skeleton--anim-blink:after {
+    background: rgba(255, 255, 255, 0.7);
+    animation: x-skeleton--fade 1.5s linear 0.5s infinite;
+  }
+  &.x-skeleton--anim-wave:after {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0)
+    );
+    animation: x-skeleton--wave 1.5s linear 0.5s infinite;
+  }
+
+  &.x-skeleton--dark {
+    background: rgba(255, 255, 255, 0.05);
+
+    &.x-skeleton--bordered {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    &.x-skeleton--anim-wave:after {
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0)
+      );
+    }
+
+    &.x-skeleton--anim-blink:after {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+@keyframes x-skeleton--fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes x-skeleton--pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes x-skeleton--pulse-x {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.75);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes x-skeleton--pulse-y {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.75);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes x-skeleton--wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -1,0 +1,275 @@
+// Vitest Snapshot v1
+
+exports[`ProtocolStatus > should match snapshot 1`] = `
+<div
+  class="container mt-4 pt-lg-4"
+  data-v-170b8f14=""
+>
+  <div
+    class="row mt-3"
+    data-v-170b8f14=""
+  >
+    <div
+      class="col-12 col-md-10 offset-md-1"
+      data-v-170b8f14=""
+    >
+      <h2
+        class="font-muli-20-primary mb-4 text-center"
+        data-v-170b8f14=""
+      >
+         Resultado de consulta 
+      </h2>
+      <p
+        class="text-center"
+        data-v-170b8f14=""
+      >
+         Certifique-se que as iniciais do nome e a data de nascimento são compatíveis com as do(a) aluno(a) sendo pesquisado. Se os dados estiverem incorretos verifique se o número do protocolo está correto e tente novamente. 
+      </p>
+    </div>
+  </div>
+  <div
+    class="row mt-3"
+    data-v-170b8f14=""
+  >
+    <div
+      class="col-12 col-md-10 offset-md-1"
+      data-v-170b8f14=""
+    >
+      <protocol-consult-stub
+        data-v-170b8f14=""
+        title="Consulta de inscrição"
+      />
+    </div>
+  </div>
+  <div
+    class="row mt-3"
+    data-v-170b8f14=""
+  >
+    <div
+      class="col-12 col-md-10 offset-md-1"
+      data-v-170b8f14=""
+    >
+      <div
+        class="m-auto pt-4"
+        data-v-170b8f14=""
+      >
+        <div
+          class="protocol card p-3 m-auto"
+          data-v-170b8f14=""
+        >
+          <div
+            data-v-170b8f14=""
+          >
+            <div
+              data-v-170b8f14=""
+            >
+              <div
+                class="alert badge-green text-center text-uppercase"
+                data-v-170b8f14=""
+              >
+                 Deferido 
+              </div>
+            </div>
+            <!--v-if-->
+            <!--v-if-->
+            <!--v-if-->
+            <!--v-if-->
+            <dl
+              class="mb-0"
+              data-v-170b8f14=""
+            >
+              <dt
+                data-v-170b8f14=""
+              >
+                Aluno(a)
+              </dt>
+              <dd
+                data-v-170b8f14=""
+              >
+                string (Data inválida) 
+              </dd>
+              <!--v-if-->
+              <dt
+                data-v-170b8f14=""
+              >
+                Escola
+              </dt>
+              <dd
+                data-v-170b8f14=""
+              >
+                <p
+                  class="mb-0"
+                  data-v-170b8f14=""
+                >
+                  string
+                </p>
+                <p
+                  class="mb-0"
+                  data-v-170b8f14=""
+                >
+                   Telefone: (47) string
+                </p>
+              </dd>
+              <dt
+                data-v-170b8f14=""
+              >
+                Tipo
+              </dt>
+              <dd
+                data-v-170b8f14=""
+              >
+                <span
+                  class="badge badge-blue"
+                  data-v-170b8f14=""
+                >
+                   Pré-matrícula 
+                </span>
+              </dd>
+            </dl>
+            <div
+              class="mt-4"
+              data-v-170b8f14=""
+            >
+              <div
+                class="alert badge-gray"
+                data-v-170b8f14=""
+              >
+                <p
+                  data-v-170b8f14=""
+                >
+                  Este aluno também está em lista de espera:
+                </p>
+                <dl
+                  class="mb-0"
+                  data-v-170b8f14=""
+                >
+                  <dt
+                    data-v-170b8f14=""
+                  >
+                    Protocolo
+                  </dt>
+                  <dd
+                    data-v-170b8f14=""
+                  >
+                    <router-link-stub
+                      data-v-170b8f14=""
+                      to="[object Object]"
+                    />
+                  </dd>
+                  <!--v-if-->
+                  <dt
+                    data-v-170b8f14=""
+                  >
+                    Escola
+                  </dt>
+                  <dd
+                    data-v-170b8f14=""
+                  >
+                    <p
+                      class="mb-0"
+                      data-v-170b8f14=""
+                    >
+                      string
+                    </p>
+                    <p
+                      class="mb-0"
+                      data-v-170b8f14=""
+                    >
+                       Telefone: (string)
+string
+                    </p>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div
+              class="mt-4"
+              data-v-170b8f14=""
+            >
+              <div
+                class="alert badge-gray"
+                data-v-170b8f14=""
+              >
+                <p
+                  data-v-170b8f14=""
+                >
+                  Este(a) aluno(a) também possui uma pré-matrícula:
+                </p>
+                <dl
+                  class="mb-0"
+                  data-v-170b8f14=""
+                >
+                  <dt
+                    data-v-170b8f14=""
+                  >
+                    Protocolo
+                  </dt>
+                  <dd
+                    data-v-170b8f14=""
+                  >
+                    <router-link-stub
+                      data-v-170b8f14=""
+                      to="[object Object]"
+                    />
+                  </dd>
+                  <!--v-if-->
+                  <dt
+                    data-v-170b8f14=""
+                  >
+                    Escola
+                  </dt>
+                  <dd
+                    data-v-170b8f14=""
+                  >
+                    <p
+                      class="mb-0"
+                      data-v-170b8f14=""
+                    >
+                      string
+                    </p>
+                    <p
+                      class="mb-0"
+                      data-v-170b8f14=""
+                    >
+                       Telefone: (string)
+string
+                    </p>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <button
+              class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100 mt-4"
+              data-test="btn-more-info"
+              data-v-170b8f14=""
+              role="button"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+              >
+                <span
+                  class="block"
+                >
+                  Mais informações
+                </span>
+              </span>
+              <transition-stub
+                appear="false"
+                css="true"
+                name="x-transition--fade"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;

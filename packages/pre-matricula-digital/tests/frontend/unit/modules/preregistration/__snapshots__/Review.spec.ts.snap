@@ -1,0 +1,197 @@
+// Vitest Snapshot v1
+
+exports[`Review > should match snapshot 1`] = `
+<div
+  class="container-pmd"
+>
+  <h2
+    class="font-muli-20-primary mb-4"
+  >
+     Confira seus dados antes de finalizar a inscrição: 
+  </h2>
+  <div
+    class="mb-3 d-sm-flex justify-content-between"
+  >
+    <h3
+      class="font-hind-18-primary"
+    >
+       Dados do(a) responsável pelo(a) aluno(a) 
+    </h3>
+    <button
+      class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-primary border-primary x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase flex-row"
+      data-test="btn-edit-responsible"
+      role="button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+      >
+        <span
+          class="block"
+        >
+          Editar dados
+        </span>
+      </span>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="x-transition--fade"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+    </button>
+  </div>
+  <div
+    class="row"
+  >
+    
+    
+    <dl
+      class="col-6"
+    >
+      <dt
+        class="font-hind font-size-10"
+      >
+        Relação com o(a) aluno(a)
+      </dt>
+      <dd />
+    </dl>
+    <dl
+      class="col-sm-12"
+    >
+      <dt
+        class="font-hind font-size-10"
+      >
+        Endereço
+      </dt>
+      <dd>
+        -
+      </dd>
+    </dl>
+    <!--v-if-->
+  </div>
+  <div
+    class="mt-5 mb-3 d-sm-flex justify-content-between"
+  >
+    <h3
+      class="font-hind-18-primary"
+    >
+      Dados do(a) aluno(a)
+    </h3>
+    <button
+      class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-primary border-primary x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase flex-row"
+      data-test="btn-edit-student"
+      role="button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+      >
+        <span
+          class="block"
+        >
+          Editar dados
+        </span>
+      </span>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="x-transition--fade"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+    </button>
+  </div>
+  <div
+    class="row"
+  >
+    
+    
+  </div>
+  <div
+    class="mt-5 mb-3 d-sm-flex justify-content-between"
+  >
+    <h3
+      class="font-hind-18-primary"
+    >
+      Dados da pré-matrícula
+    </h3>
+    <button
+      class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-primary border-primary x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase flex-row"
+      data-test="btn-edit-student-2"
+      role="button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+      >
+        <span
+          class="block"
+        >
+          Editar dados
+        </span>
+      </span>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="x-transition--fade"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+    </button>
+  </div>
+  <div
+    class="row"
+  >
+    <dl
+      class="col-6"
+    >
+      <dt
+        class="font-hind font-size-10"
+      >
+        Série
+      </dt>
+      <dd />
+    </dl>
+    <dl
+      class="col-6"
+    >
+      <dt
+        class="font-hind font-size-10"
+      >
+        Turno
+      </dt>
+      <dd />
+    </dl>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <div
+    class="row"
+  >
+    <x-field-stub
+      allowclear="false"
+      bind="[object Object]"
+      containerclass="col-12 col-md-8 offset-md-2 mt-4"
+      disabled="false"
+      errors="false"
+      label="
+        Eu autorizo o uso e tratamento dos dados pessoais acima para fins destinados a pré-matrícula na rede municipal
+        "
+      loading="false"
+      modelvalue="false"
+      name="accept"
+      options=""
+      rules="required"
+      searchable="false"
+      type="CHECKBOX"
+    />
+  </div>
+</div>
+`;

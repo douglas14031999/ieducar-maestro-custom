@@ -1,0 +1,66 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+scalar JSON @scalar(class: "MLL\\GraphQLScalars\\JSON")
+
+type Period {
+  id: ID!
+  name: String!
+}
+
+type SchoolYear {
+  id: ID!
+  year: Int!
+}
+
+type Course {
+  id: ID!
+  name: String!
+  grades: [Grade!]! @hasMany(type: PAGINATOR)
+}
+
+type Grade {
+  id: ID!
+  name: String!
+  startBirth: Date @rename(attribute: "start_birth")
+  endBirth: Date @rename(attribute: "end_birth")
+  course: Course!
+}
+
+extend type Query @guard(with: ["web", "sanctum", "prematricula"]) {
+
+  """
+  Lista os turnos.
+  """
+  periods: [Period!]! @paginate
+
+  """
+  Lista os anos letivos.
+  """
+  schoolYears: [SchoolYear!]! @paginate
+
+  """
+  Retorna o ano letivo de ID.
+  """
+  schoolYear(id: ID @eq): SchoolYear @find
+
+  """
+  Lista os cursos.
+  """
+  courses: [Course!]! @paginate
+
+  """
+  Lista as séries.
+  """
+  grades: [Grade!]! @paginate
+}
+
+input ConfigInput {
+  key: String!
+  value: String!
+}
+
+extend type Mutation @guard {
+  saveConfig(
+    input: [ConfigInput!]!
+  ): Boolean!
+}

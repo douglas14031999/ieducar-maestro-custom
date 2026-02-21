@@ -1,0 +1,359 @@
+// Vitest Snapshot v1
+
+exports[`ProcessStages > should match snapshot 1`] = `
+<main
+  class="container"
+  style="max-width: 740px;"
+>
+  <h2
+    class="font-muli-20-primary"
+  >
+    Crie o processo de pré-matrícula
+  </h2>
+  <p>
+     Crie os períodos de pré-matrícula que deseja para o seu processo. Cada processo poderá conter mais de um período de pré-matrícula, sendo as opções: um período de rematrícula e/ou um de matrícula. Você também pode escolher as escolas que aparecerão disponíveis por distância. 
+  </p>
+  <!--v-if-->
+  <div>
+    <form
+      autocomplete="off"
+      class="row"
+    >
+      
+      
+      
+      
+      <div
+        class="col-12 mt-5"
+      >
+        <!--v-if-->
+        <div
+          class="row"
+        >
+          <div
+            class="col-12"
+          >
+            <div
+              class="d-flex"
+            >
+              <x-field-stub
+                allowclear="false"
+                bind="[object Object]"
+                containerclass="w-100 mr-4"
+                disabled="false"
+                errors="false"
+                label="Tipo de período"
+                loading="false"
+                modelvalue="REGISTRATION"
+                name="stages[0].type"
+                options="[object Object],[object Object],[object Object]"
+                rules="required"
+                searchable="false"
+                type="SELECT"
+              />
+              <div
+                class="d-flex align-items-center mt-3"
+              >
+                <button
+                  class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase border-danger text-danger"
+                  role="button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+                  >
+                    <span
+                      class="block"
+                    >
+                      Remover
+                    </span>
+                  </span>
+                  <transition-stub
+                    appear="false"
+                    css="true"
+                    name="x-transition--fade"
+                    persisted="false"
+                  >
+                    <!---->
+                  </transition-stub>
+                </button>
+              </div>
+            </div>
+          </div>
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12"
+            disabled="false"
+            errors="false"
+            label="Opções de escola por raio <span style='font-size: 14px'>(?)</span>"
+            loading="false"
+            modelvalue="1500"
+            name="stages[0].radius"
+            options=""
+            rules="numeric"
+            searchable="false"
+            type="NUMBER"
+          />
+          <div
+            class="mb-2"
+          >
+            <x-field-stub
+              allowclear="false"
+              bind="[object Object]"
+              containerclass="col-12 form-group"
+              disabled="false"
+              errors="false"
+              label="Aceitar inscrições"
+              loading="false"
+              modelvalue="NONE"
+              name="stages[0].restrictionType"
+              options="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+              searchable="false"
+              sublabel="Permite apenas inscrições de alunos(as) que possuam uma matrícula ativa no ano anterior"
+              type="RADIO"
+            />
+          </div>
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 form-group"
+            disabled="false"
+            errors="false"
+            label="Permitir selecionar uma escola para lista de espera"
+            loading="false"
+            modelvalue="true"
+            name="stages[0].allowWaitingList"
+            options=""
+            searchable="false"
+            sublabel="Possibilita que no momento da pré-matrícula seja selecionada uma escola para lista de espera"
+            type="CHECKBOX"
+          />
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 form-group"
+            disabled="false"
+            errors="false"
+            label="Permitir se inscrever somente na escola atual do aluno"
+            loading="false"
+            modelvalue="false"
+            name="stages[0].renewalAtSameSchool"
+            options=""
+            searchable="false"
+            sublabel="Só possibilitará a inscrição caso exista vaga na escola atual do aluno"
+            type="CHECKBOX"
+          />
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 form-group"
+            disabled="false"
+            errors="false"
+            label="Permitir buscar por cadastros do i-Educar"
+            loading="false"
+            modelvalue="false"
+            name="stages[0].allowSearch"
+            options=""
+            searchable="false"
+            sublabel="Possibilitará buscar pelo aluno no i-Educar para reaproveitar os dados"
+            type="CHECKBOX"
+          />
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 col-md-6"
+            disabled="false"
+            errors="false"
+            label="Data Inicial"
+            loading="false"
+            modelvalue="2021-02-17 14:00:00"
+            name="stages[0].startAt"
+            options=""
+            rules="required|date"
+            searchable="false"
+            type="DATE"
+          />
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 col-md-6"
+            disabled="false"
+            errors="false"
+            label="Hora Inicial"
+            loading="false"
+            modelvalue="2021-02-17 14:00:00"
+            name="stages[0].startHourAt"
+            options=""
+            rules="required|hour"
+            searchable="false"
+            type="TIME"
+          />
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 col-md-6"
+            disabled="false"
+            errors="false"
+            label="Data Final"
+            loading="false"
+            modelvalue="2021-03-07 23:59:00"
+            name="stages[0].endAt"
+            options=""
+            rules="required|date"
+            searchable="false"
+            type="DATE"
+          />
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12 col-md-6"
+            disabled="false"
+            errors="false"
+            label="Hora Final"
+            loading="false"
+            modelvalue="2021-03-07 23:59:00"
+            name="stages[0].endHourAt"
+            options=""
+            rules="required|hour"
+            searchable="false"
+            type="TIME"
+          />
+          <x-field-stub
+            allowclear="false"
+            bind="[object Object]"
+            containerclass="col-12"
+            disabled="false"
+            errors="false"
+            label="Observações e lista de documentos a serem entregues na matrícula"
+            loading="false"
+            modelvalue=""
+            name="stages[0].observation"
+            options=""
+            searchable="false"
+            type="RICH_TEXT"
+          />
+        </div>
+        <div
+          class="row"
+          style="display: none;"
+        >
+          <div
+            class="col-12"
+          >
+            <p>
+               O tipo de período 'Rematrícula' irá validar a compatibilidade de rematrícula, ou seja, validações de compatibilidade com os dados existentes no i-Educar permitindo a rematrícula somente de alunos que já estudam na rede. 
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div
+        class="col-12 col-md-6 offset-md-3 mt-5"
+      >
+        <div
+          class="d-flex justify-content-center"
+        >
+          <button
+            class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+            data-test="add-stage-btn"
+            role="button"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+            >
+              <span
+                class="block"
+              >
+                Adicionar outro período
+              </span>
+            </span>
+            <transition-stub
+              appear="false"
+              css="true"
+              name="x-transition--fade"
+              persisted="false"
+            >
+              <!---->
+            </transition-stub>
+          </button>
+        </div>
+      </div>
+      
+      <div
+        class="col-12"
+      >
+        <div
+          class="row mt-5"
+        >
+          
+          <div
+            class="offset-md-3 col-md-3"
+          >
+            <button
+              class="x-btn x-btn-item non-selectable no-outline x-btn--outline x-btn--rectangle text-gray-500 border-gray-500 x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+              data-test="button-back"
+              role="button"
+              style="font-size: 20px;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+              >
+                <span
+                  class="block"
+                >
+                  Voltar
+                </span>
+              </span>
+              <transition-stub
+                appear="false"
+                css="true"
+                name="x-transition--fade"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+            </button>
+          </div>
+          <div
+            class="col-md-3 mt-3 mt-md-0"
+          >
+            <button
+              class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase btn btn-block btn-primary w-100 h-100 flex-row justify-content-center"
+              disabled="false"
+              role="button"
+              style="font-size: 20px;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+              >
+                <span
+                  class="block"
+                >
+                  Prosseguir
+                </span>
+              </span>
+              <transition-stub
+                appear="false"
+                css="true"
+                name="x-transition--fade"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+`;

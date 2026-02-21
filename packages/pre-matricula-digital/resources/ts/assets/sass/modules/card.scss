@@ -1,0 +1,107 @@
+.x-card {
+  box-shadow: $card-box-shadow;
+  border-radius: $border-radius;
+  vertical-align: top;
+  background: #fff;
+  position: relative;
+
+  > div,
+  > img {
+    &:first-child {
+      border-top: 0;
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+  }
+  > div,
+  > img {
+    &:last-child {
+      border-bottom: 0;
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+    }
+  }
+  > div,
+  > img {
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+  > div,
+  > img {
+    &:not(:last-child) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  > div {
+    border-left: 0;
+    border-right: 0;
+    box-shadow: none;
+  }
+
+  &.x-card--bordered {
+    border: 1px solid $card-border-color;
+  }
+
+  &.x-card__section {
+    position: relative;
+  }
+
+  .x-card__section--vert {
+    padding: 1em;
+  }
+
+  .x-card__section--horiz {
+    > div,
+    > img {
+      &:first-child {
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+      }
+      &:last-child {
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+      }
+      &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    > div {
+      border-top: 0;
+      border-bottom: 0;
+      box-shadow: none;
+    }
+  }
+
+  > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+  }
+
+  &.x-card--hover:not(.card-process-disabled):hover {
+    background-color: #d7e9ff;
+    border-color: $primary;
+  }
+
+  &.protocol {
+    border-color: #e3e3e3;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.12);
+  }
+}
+
+.card-active:not(.card-process-disabled),
+.card-hover:not(.card-process-disabled):hover,
+.card-input:checked + .x-card {
+  background-color: #d7e9ff;
+  border-color: #0072ff;
+}

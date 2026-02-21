@@ -1,0 +1,255 @@
+// Vitest Snapshot v1
+
+exports[`FieldsPage > should match snapshot 1`] = `
+<main>
+  <h1>
+    Campos
+  </h1>
+  <!--v-if-->
+  <div
+    class="row mt-5"
+  >
+    <div
+      class="col-12 col-md-6"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-12"
+        >
+          <p>
+            Dados do(a) responsável pelo(a) aluno(a)
+          </p>
+          <hr />
+        </div>
+        
+        <div
+          class="col-12 col-sm-6 col-md-12 col-lg-6 mb-3"
+          data-test="wrapper-checkbox"
+        >
+          <label
+            class="toggle-checkbox"
+          >
+            <input
+              disabled=""
+              type="checkbox"
+              value="2"
+            />
+            <div
+              class="toggle-required toggle-text"
+            >
+              Data de nascimento
+            </div>
+          </label>
+        </div>
+        <div
+          class="col-12 col-sm-6 col-md-12 col-lg-6 mb-3"
+          data-test="wrapper-checkbox"
+        >
+          <label
+            class="toggle-checkbox"
+          >
+            <input
+              disabled=""
+              type="checkbox"
+              value="3"
+            />
+            <div
+              class="toggle-required toggle-text"
+            >
+              CPF
+            </div>
+          </label>
+        </div>
+        <div
+          class="col-12 col-sm-6 col-md-12 col-lg-6 mb-3"
+          data-test="wrapper-checkbox"
+        >
+          <label
+            class="toggle-checkbox"
+          >
+            <input
+              disabled=""
+              type="checkbox"
+              value="7"
+            />
+            <div
+              class="toggle-text"
+            >
+              Naturalidade
+            </div>
+          </label>
+        </div>
+        
+        <div
+          class="col-12 mb-3"
+        >
+          <label
+            class="toggle-checkbox"
+          >
+            <input
+              disabled=""
+              type="checkbox"
+            />
+            <div
+              class="toggle-text toggle-required"
+            >
+              Endereço
+            </div>
+          </label>
+        </div>
+        <div
+          class="col-12"
+        >
+          <button
+            class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+            data-test="btn-add-field-responsible"
+            role="button"
+            style="font-size: 20px;"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+            >
+              <i
+                aria-hidden="true"
+                class="mdi mdi-plus pmd-icon on-left text-"
+                role="img"
+                style="margin-top: 1px;"
+              >
+                 
+              </i>
+              <span
+                class="block"
+              >
+                Adicionar novo campo
+              </span>
+            </span>
+            <transition-stub
+              appear="false"
+              css="true"
+              name="x-transition--fade"
+              persisted="false"
+            >
+              <!---->
+            </transition-stub>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-12 col-md-6 mt-5 mt-md-0"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-12"
+        >
+          <p>
+            Dados do(a) aluno(a)
+          </p>
+          <hr />
+        </div>
+        
+        <div
+          class="col-12 col-sm-6 col-md-12 col-lg-6 mb-3"
+        >
+          <label
+            class="toggle-checkbox"
+          >
+            <input
+              disabled=""
+              type="checkbox"
+              value="9"
+            />
+            <div
+              class="toggle-required toggle-text"
+            >
+              Nome
+            </div>
+          </label>
+        </div>
+        <div
+          class="col-12 col-sm-6 col-md-12 col-lg-6 mb-3"
+        >
+          <label
+            class="toggle-checkbox"
+          >
+            <input
+              disabled=""
+              type="checkbox"
+              value="10"
+            />
+            <div
+              class="toggle-required toggle-text"
+            >
+              Data de nascimento
+            </div>
+          </label>
+        </div>
+        <div
+          class="col-12 col-sm-6 col-md-12 col-lg-6 mb-3"
+        >
+          <label
+            class="toggle-checkbox"
+          >
+            <input
+              disabled=""
+              type="checkbox"
+              value="13"
+            />
+            <div
+              class="toggle-text"
+            >
+              Certidão de nascimento
+            </div>
+          </label>
+        </div>
+        
+        <div
+          class="col-12"
+        >
+          <button
+            class="x-btn x-btn-item non-selectable no-outline x-btn--standard x-btn--rectangle bg-primary text-white x-btn--actionable pmd-focusable pmd-hoverable x-btn--no-uppercase w-100"
+            data-test="btn-add-field-student"
+            role="button"
+            style="font-size: 20px;"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="x-btn__content text-center d-flex justify-content-center no-wrap text-no-wrap"
+            >
+              <i
+                aria-hidden="true"
+                class="mdi mdi-plus pmd-icon on-left text-"
+                role="img"
+                style="margin-top: 1px;"
+              >
+                 
+              </i>
+              <span
+                class="block"
+              >
+                Adicionar novo campo
+              </span>
+            </span>
+            <transition-stub
+              appear="false"
+              css="true"
+              name="x-transition--fade"
+              persisted="false"
+            >
+              <!---->
+            </transition-stub>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--v-if-->
+</main>
+`;

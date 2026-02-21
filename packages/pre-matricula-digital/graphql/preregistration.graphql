@@ -1,0 +1,393 @@
+extend type Query @guard(with: ["prematricula"]) {
+
+  """
+  Lista as pré-matrículas.
+  """
+  preregistrations(
+    """
+    Retorna apenas as pré-matrículas onde o **protocolo** ou o **nome do(a) aluno(a)** contenha `search`.
+    """
+    search: String @slug @search(columns: ["protocol", "student.slug"])
+    process: ID @eq(key: "process_id")
+    processes: [ID!] @in(key: "process_id")
+    school: ID @eq(key: "school_id")
+    schools: [ID!] @in(key: "school_id")
+    grade: ID @eq(key: "grade_id")
+    grades: [ID] @in(key: "grade_id")
+    period: ID @eq(key: "period_id")
+    type: PreRegistrationType @eq(key: "preregistration_type_id")
+    status: PreRegistrationStatus @eq(key: "status")
+    sort: PreRegistrationSort @scope(name: "sort")
+    year: Int @search(columns: ["process.school_year_id"])
+  ): [PreRegistration!]! @paginate
+
+}
+
+extend type Query @guard(with: ["web", "sanctum", "prematricula"]) {
+
+  """
+  Retorna a pré-matrícula do protocolo.
+  """
+  preregistrationByProtocol(
+    protocol: String @eq
+    withVacancy: Boolean
+  ): PreRegistration @first
+
+  """
+  Retorna a inscrição usando o código de verificação.
+  """
+  preregistrationByCode(
+    code: String @eq
+  ): PreRegistration @first
+
+  getStudentMatches(
+    stage: ID!
+    name: String @slug
+    dateOfBirth: Date @rename(attribute: "date_of_birth")
+    cpf: String
+    rg: String
+    birthCertificate: String @rename(attribute: "birth_certificate")
+  ): [StudentMatch!]!
+
+  summonNextInLine(
+    process: ID! @eq(key: "process_id")
+    school: ID! @eq(key: "school_id")
+    grade: ID! @eq(key: "grade_id")
+    period: ID! @eq(key: "period_id")
+  ): PreRegistration @first(scopes: ["nextInLine", "waiting"])
+
+  matchByStudentCpf(
+    cpf: String! @eq
+    year: Int! @eq
+  ): RegistrationMatch @first
+
+  matchByStudentRg(
+    rg: String! @eq
+    year: Int! @eq
+  ): RegistrationMatch @first
+
+  matchByStudentBirthCertificate(
+    birthCertificate: String! @eq(key: "birth_certificate")
+    year: Int! @eq
+  ): RegistrationMatch @first
+
+  matchByStudentNameAndDateOfBirth(
+    name: String! @slug @eq(key: "slug")
+    dateOfBirth: Date! @eq(key: "date_of_birth")
+    year: Int! @eq
+  ): RegistrationMatch @first
+
+  findPreRegistrationsByStudentCpf(
+    cpf: String!
+  ): [PreRegistration!]!
+
+  findPreRegistrationsByStudentRg(
+    rg: String!
+  ): [PreRegistration!]!
+
+  findPreRegistrationsByStudentBirthCertificate(
+    birthCertificate: String! @rename(attribute: "birth_certificate")
+  ): [PreRegistration!]!
+
+  findPreRegistrationsByStudentNameAndDateOfBirth(
+    name: String! @slug
+    dateOfBirth: Date! @rename(attribute: "date_of_birth")
+  ): [PreRegistration!]!
+
+  findPreRegistrationsByInfo(
+    cpf: String @rename(attribute: "responsible_cpf")
+    email: String @rename(attribute: "responsible_email")
+    protocol: String
+  ): [PreRegistration!]!
+
+  getPreRegistrationLinkedByEmail(
+    email: String! @eq
+  ): [PreRegistrationLinkedByEmail!]! @all
+
+  searchLegacyStudentsByName(
+    name: String!
+    first: Int
+  ): [LegacyStudent!]!
+}
+
+enum PreRegistrationType {
+  """
+  Rematrícula
+  """
+  REGISTRATION_RENEWAL @enum(value: 1)
+  """
+  Matrícula
+  """
+  REGISTRATION @enum(value: 2)
+  """
+  Lista de espera
+  """
+  WAITING_LIST @enum(value: 3)
+}
+
+enum PreRegistrationStatus {
+  """
+  Pré-matrícula aguardando (in)deferimento.
+  """
+  WAITING @enum(value: 1)
+
+  """
+  Pré-matrícula deferida.
+  """
+  ACCEPTED @enum(value: 2)
+
+  """
+  Pré-matrícula indeferida.
+  """
+  REJECTED @enum(value: 3)
+
+  """
+  Pré-matrícula convocada.
+  """
+  SUMMONED @enum(value: 4)
+
+  """
+  Pré-matrícula em confirmação.
+  """
+  IN_CONFIRMATION @enum(value: 5)
+}
+
+enum RelationType {
+  """
+  Mãe
+  """
+  MOTHER @enum(value: 1)
+
+  """
+  Pai
+  """
+  FATHER @enum(value: 2)
+
+  """
+  Responsável legal
+  """
+  GUARDIAN @enum(value: 3)
+
+  """
+  A própria pessoa
+  """
+  SELF @enum(value: 4)
+}
+
+enum PreRegistrationSort {
+  DATE @enum(value: 1)
+  POSITION @enum(value: 2)
+  SCHOOL @enum(value: 3)
+  NAME @enum(value: 4)
+  DATE_OF_BIRTH @enum(value: 5)
+}
+
+type RegistrationMatch {
+  id: ID!
+  year: Int!
+  school: ID!
+  grade: ID!
+  period: ID!
+  initials: String!
+  dateOfBirth: Date! @rename(attribute: "date_of_birth")
+}
+
+enum StudentMatchType {
+  PRE_REGISTRATION_ALREADY_EXISTS @enum(value: 1)
+  REGISTRATION_CURRENT_YEAR @enum(value: 2)
+  REGISTRATION_LAST_YEAR @enum(value: 3)
+  STUDENT_ALREADY_EXISTS @enum(value: 4)
+}
+
+type StudentMatch {
+  id: ID!
+  initials: String!
+  dateOfBirth: Date! @rename(attribute: "date_of_birth")
+  type: ProcessStageRestriction!
+  process: Process
+  registration: StudentMatchRegistration
+}
+
+type StudentMatchRegistration {
+  year: Int!
+  school: School!
+  grade: Grade!
+  period: Period
+}
+
+type PreRegistration {
+  id: ID!
+  type: PreRegistrationType! @rename(attribute: "preregistration_type_id")
+  position: Int!
+  parent: PreRegistration @belongsTo
+  waiting: PreRegistration @belongsTo
+  others: [PreRegistration]
+  protocol: String!
+  code: String!
+  date: DateTime! @rename(attribute: "created_at")
+  process: Process @belongsTo
+  period: Period @belongsTo
+  school: School @belongsTo
+  grade: Grade @belongsTo
+  schoolYear: SchoolYear @belongsTo
+  classroom: Classroom @belongsTo
+  inClassroom: Classroom @belongsTo
+  student: Person @belongsTo
+  responsible: Person @belongsTo
+  relationType: RelationType! @rename(attribute: "relation_type_id")
+  status: PreRegistrationStatus!
+  observation: String
+  fields: [PreRegistrationField!]! @hasMany
+  stage: ProcessStage @belongsTo
+  external: ExternalPerson @hasOne
+  linked: [PreRegistrationLinkedByEmail!]! @hasMany
+}
+
+type PreRegistrationField {
+  id: ID!
+  preregistration: PreRegistration! @belongsTo
+  field: Field! @belongsTo
+  value: String
+}
+
+type PreRegistrationLinkedByEmail {
+  id: ID!
+  preregistration: PreRegistration! @belongsTo
+  email: String!
+}
+
+extend type Mutation @guard(with: ["web", "sanctum", "prematricula"]) {
+
+  newPreRegistration(
+    input: PreRegistrationInput! @spread
+  ): [PreRegistration!]!
+
+  sendProtocolsByEmail(
+    preregistrations: [ID!]!
+    email: String!
+  ): Boolean!
+
+  keepOnTheWaitingList(
+    id: ID!
+    grade: ID
+  ): Boolean!
+
+  updateStudentInExternalSystem(
+    preregistration: ID!
+    cpf: Boolean
+    rg: Boolean
+    birthCertificate: Boolean
+    name: Boolean
+    dateOfBirth: Boolean
+    gender: Boolean
+    phone: Boolean
+    mobile: Boolean
+    address: Boolean
+  ): Boolean!
+
+  savePreRegistrationLinkedByEmail(
+    preregistration: ID! @rename(attribute: "preregistration_id")
+    email: String!
+  ): PreRegistrationLinkedByEmail!
+
+  deletePreRegistrationLinkedByEmail(
+    id: ID! @whereKey
+  ): PreRegistrationLinkedByEmail! @delete
+
+}
+
+extend type Mutation @guard {
+  acceptPreRegistrations(
+    ids: [ID!]!
+    classroom: ID!
+  ): [PreRegistration!]!
+
+  rejectPreRegistrations(
+    ids: [ID!]!
+    justification: String
+  ): [PreRegistration!]!
+
+  summonPreRegistrations(
+    ids: [ID!]!
+    justification: String
+  ): [PreRegistration!]!
+
+  returnToWaitPreRegistrations(
+    ids: [ID!]!
+  ): [PreRegistration!]!
+
+  updateStudent(
+    protocol: String!
+    fields: [PreRegistrationFieldInput!]!
+  ): PreRegistration
+
+  updateResponsible(
+    protocol: String!
+    fields: [PreRegistrationFieldInput!]!
+  ): PreRegistration
+
+  updatePreRegistration(
+    protocol: String!
+    grade: ID!
+    school: ID!
+    period: ID!
+  ): PreRegistration
+
+  updateAddress(
+    protocol: String!
+    address: AddressInput
+  ): PreRegistration
+}
+
+input PreRegistrationFieldInput {
+  field: ID!
+  value: String
+}
+
+input AddressInput {
+  postalCode: String! @rename(attribute: "postal_code")
+  address: String!
+  number: String!
+  complement: String
+  neighborhood: String!
+  city: String
+  stateAbbreviation: String
+  cityIbgeCode: Int
+  lat: Float! @rename(attribute: "latitude")
+  lng: Float! @rename(attribute: "longitude")
+  manualChangeLocation: Boolean! @rename(attribute: "manual_change_location")
+}
+
+input PreRegistrationWaitingListInput {
+  period: ID! @rename(attribute: "period_id")
+  school: ID @rename(attribute: "school_id")
+}
+
+input PreRegistrationInput {
+  type: PreRegistrationType!  @rename(attribute: "preregistration_type_id")
+  process: ID! @rename(attribute: "process_id")
+  stage: ID! @rename(attribute: "process_stage_id")
+  grade: ID! @rename(attribute: "grade_id")
+  period: ID! @rename(attribute: "period_id")
+  school: ID @rename(attribute: "school_id")
+  optionalSchool: ID
+  optionalPeriod: ID
+  address: AddressInput!
+  optionalAddress: AddressInput
+  relationType: RelationType! @rename(attribute: "relation_type_id")
+  responsible: [PreRegistrationFieldInput!]!
+  student: [PreRegistrationFieldInput!]!
+  externalPerson: ID @rename(attribute: "external_person_id")
+  waitingList: [PreRegistrationWaitingListInput!]
+}
+
+type LegacyStudent {
+  id: ID!
+  name: String!
+  cpf: String
+  dateOfBirth: String @rename(attribute: "date_of_birth")
+  responsibleName: String @rename(attribute: "responsible_name")
+  responsibleCpf: String @rename(attribute: "responsible_cpf")
+  responsibleDateOfBirth: String @rename(attribute: "responsible_date_of_birth")
+  responsiblePhone: String @rename(attribute: "responsible_phone")
+}

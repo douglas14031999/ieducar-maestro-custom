@@ -1,0 +1,11 @@
+.x-transition--fade-leave-active {
+  position: absolute;
+}
+.x-transition--fade-enter-active,
+.x-transition--fade-leave-active {
+  transition: opacity 0.3s ease-out;
+}
+.x-transition--fade-enter-from,
+.x-transition--fade-leave-to {
+  opacity: 0;
+}

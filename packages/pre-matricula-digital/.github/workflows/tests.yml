@@ -1,0 +1,103 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - 2.*
+      - main
+  pull_request:
+
+jobs:
+
+  default:
+
+    name: Unit and Integration
+
+    if: '! github.event.pull_request.draft'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+
+      - name: Checkout Pré-matrícula
+        uses: actions/checkout@v2
+
+      - name: Install project
+        run: composer install
+
+      - name: Unit and integration tests
+        run: vendor/bin/pest
+
+  legacy:
+    name: Legacy
+
+    if: '! github.event.pull_request.draft'
+
+    runs-on: ubuntu-latest
+
+    env:
+      APP_ENV: testing
+      APP_URL: http://localhost:8000
+      API_ACCESS_KEY: ieducar-access-key
+      API_SECRET_KEY: ieducar-secret-key
+      DB_CONNECTION: pgsql
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_DATABASE: ieducar
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      BROADCAST_DRIVER: log
+      CACHE_DRIVER: array
+      SESSION_DRIVER: array
+      QUEUE_CONNECTION: sync
+      LOG_CHANNEL: null
+      LEGACY_SEED_DATA: false
+      PMD_LEGACY: false
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: ieducar
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
+
+    steps:
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+
+      - name: Checkout i-Educar
+        uses: actions/checkout@v2
+        with:
+          repository: portabilis/i-educar
+
+      - name: Checkout Pré-matrícula
+        uses: actions/checkout@v2
+        with:
+          path: packages/portabilis/pre-matricula
+
+      - name: Install project
+        run: composer install
+
+      - name: Plug and play dependencies
+        run: |
+          composer config allow-plugins true
+          composer plug-and-play:add orchestra/testbench ^10.0
+          composer plug-and-play:add pestphp/pest ^3.0
+          composer plug-and-play
+        env:
+          COMPOSER_ALLOW_SUPERUSER: 1
+
+      - name: Run migrations
+        run: php artisan migrate
+
+      - name: Unit and integration tests
+        run: vendor/bin/pest -c packages/portabilis/pre-matricula/phpunit.legacy.xml

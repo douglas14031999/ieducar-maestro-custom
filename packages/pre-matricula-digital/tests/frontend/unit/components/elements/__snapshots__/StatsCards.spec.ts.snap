@@ -1,0 +1,55 @@
+// Vitest Snapshot v1
+
+exports[`StatsCards > should match snapshot 1`] = `
+<div
+  class="row mt-5 mb-5 pl-lg-0 pl-3 pr-lg-0 pr-3"
+>
+  <div
+    class="col-12 p-0 d-flex justify-content-lg-around"
+    style="overflow-x: auto;"
+  >
+    
+    <x-card-stub
+      bordered="true"
+      class="col-6 col-md-2 bg-background card-summary mr-3 mr-lg-0"
+      flat="false"
+      hoverable="false"
+      square="false"
+      tag="div"
+    />
+    <x-card-stub
+      bordered="true"
+      class="col-6 col-md-2 bg-background card-summary mr-3 mr-lg-0"
+      flat="false"
+      hoverable="false"
+      square="false"
+      tag="div"
+    />
+    <x-card-stub
+      bordered="true"
+      class="col-6 col-md-2 bg-background card-summary mr-3 mr-lg-0"
+      flat="false"
+      hoverable="false"
+      square="false"
+      tag="div"
+    />
+    <x-card-stub
+      bordered="true"
+      class="col-6 col-md-2 bg-background card-summary mr-3 mr-lg-0"
+      flat="false"
+      hoverable="false"
+      square="false"
+      tag="div"
+    />
+    <x-card-stub
+      bordered="true"
+      class="col-6 col-md-2 bg-background card-summary mr-3 mr-lg-0"
+      flat="false"
+      hoverable="false"
+      square="false"
+      tag="div"
+    />
+    
+  </div>
+</div>
+`;

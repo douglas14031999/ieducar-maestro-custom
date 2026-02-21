@@ -1,0 +1,15 @@
+type Timeline {
+  id: ID!
+  modelId: Int! @rename(attribute: "model_id")
+  modelType: String! @rename(attribute: "model_type")
+  type: String!
+  payload: JSON!
+  createdAt: String! @rename(attribute: "created_at")
+}
+
+extend type Query @guard(with: ["web", "sanctum", "prematricula"]) {
+  getTimelines(
+    modelId: ID! @rename(attribute: "model_id")
+    modelType: String! @rename(attribute: "model_type")
+  ): [Timeline!]!
+}

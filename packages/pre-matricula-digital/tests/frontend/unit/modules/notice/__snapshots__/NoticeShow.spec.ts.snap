@@ -1,0 +1,33 @@
+// Vitest Snapshot v1
+
+exports[`NoticeShow > should match snapshot 1`] = `
+<div>
+  <div
+    class="row mt-3"
+  >
+    <header-entity-data-stub />
+  </div>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 col-lg-10 offset-lg-1"
+    >
+      <h2
+        class="title-find-school"
+      >
+        Avisos
+      </h2>
+      <div
+        class="mt-4"
+      >
+        <p
+          data-test="notice-section"
+        >
+          test notice
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

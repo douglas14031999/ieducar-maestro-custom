@@ -1,0 +1,43 @@
+// Vitest Snapshot v1
+
+exports[`RegistrationPreMatch > should match snapshot 1`] = `
+<div>
+  <h2
+    class="font-muli-20-primary mb-4"
+  >
+     Identifique o(a) aluno(a) para continuar com a inscrição: 
+  </h2>
+  <p>
+     Selecione uma das opções abaixo para validar se o(a) 
+    <strong>
+      aluno(a)
+    </strong>
+     já está vinculado a rede municipal de ensino. Caso não seja possível identificá-lo com a opção selecionada, você pode escolher outro campo para validar a existência dos dados. A solicitação de 
+    <strong>
+      rematrícula
+    </strong>
+     poderá ser efetuada somente para 
+    <strong>
+      alunos(as) que estudaram no ano anterior na rede municipal
+    </strong>
+    . 
+  </p>
+  <div
+    class="mt-5"
+  >
+    <x-field-stub
+      allowclear="false"
+      bind="[object Object]"
+      containerclass="col-12 m-0 p-0 registration_custom"
+      disabled="false"
+      errors="false"
+      loading="false"
+      name="type"
+      options="[object Object],[object Object],[object Object],[object Object]"
+      rules=""
+      searchable="false"
+      type="PRETTY_RADIO"
+    />
+  </div>
+</div>
+`;
