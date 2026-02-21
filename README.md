@@ -1,27 +1,68 @@
-# i-Educar Maestro Custom
+# i-Educar — Instalação Completa para VPS
 
-Este repositório contém uma versão customizada do i-Educar com os módulos de **Biblioteca** e **Transporte Escolar** já integrados, além de correções automáticas de permissões de menu.
+Sistema de gestão escolar com **todos os módulos** inclusos:
+- ✅ **Relatório** (reports-package)
+- ✅ **Educacenso** (educacenso-package)
+- ✅ **Transporte Escolar** (transport-package)
+- ✅ **Biblioteca** (library-package)
+- ✅ **Pré-matrícula Digital** (pre-matricula-digital)
 
-## 🚀 Instalação All-in-One (VPS)
+## 🚀 Instalação Rápida (VPS)
 
-Para instalar na sua VPS com apenas um comando, execute:
+### Pré-requisitos
+- Docker e Docker Compose instalados
+- Git instalado
+
+### Comando único
 
 ```bash
-bash <(curl -sSL https://raw.githubusercontent.com/douglas14031999/ieducar-maestro-custom/main/setup.sh)
+git clone git@github.com:portabilis/i-educar.git && cd i-educar && bash setup.sh
 ```
 
-### O que este script faz:
-1.  **Isolamento**: Permite escolher a porta (ex: 8080) para não conflitar com outros projetos na VPS.
-2.  **Módulos**: Instala automaticamente a Biblioteca e o Transporte.
-3.  **Permissões**: Aplica a "vacina" que libera os menus para o administrador.
-4.  **Docker**: Sobe todos os serviços necessários em containers isolados.
+### Portas customizadas (evitar conflitos)
 
-## 🛠️ Requisitos
-*   Docker e Docker Compose instalados na VPS.
-*   Git instalado.
+Se já possui projetos rodando na VPS, defina portas alternativas:
 
-## 📝 Notas de Configuração
-Após o setup, o arquivo `.env` será gerado automaticamente. Se você já possui um PostgreSQL rodando na máquina host e deseja usá-lo em vez do container, basta ajustar as variáveis `DB_HOST`, `DB_PORT`, `DB_USERNAME` e `DB_PASSWORD` no `.env` e reiniciar os containers.
+```bash
+APP_PORT=9090 DB_PORT=5434 REDIS_PORT=6381 bash setup.sh
+```
+
+### Variáveis disponíveis
+
+| Variável | Padrão | Descrição |
+|----------|--------|-----------|
+| `APP_PORT` | `8880` | Porta HTTP do i-Educar |
+| `DB_PORT` | `5433` | Porta exposta do PostgreSQL |
+| `REDIS_PORT` | `6380` | Porta exposta do Redis |
+| `INSTALL_DIR` | `/var/www/ieducar` | Diretório de instalação |
+| `DB_NAME` | `ieducar` | Nome do banco de dados |
+| `DB_USER` | `ieducar` | Usuário do banco |
+| `DB_PASS` | `ieducar` | Senha do banco |
+
+## 📝 Primeiro Acesso
+
+Após a instalação, acesse: `http://SEU-IP:8880`
+
+- **Usuário**: `admin`
+- **Senha**: `123456789`
+
+> ⚠️ **Troque a senha padrão imediatamente!**
+
+## 🛠️ Comandos Úteis
+
+```bash
+# Ver status dos containers
+docker compose ps
+
+# Ver logs da aplicação
+docker compose logs -f php
+
+# Parar tudo
+docker compose down
+
+# Reiniciar
+docker compose up -d
+```
 
 ---
-Customizado por Antigravity (IA) para Douglas.
+Automatizado por Antigravity (IA) para Douglas.
