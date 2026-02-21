@@ -49,7 +49,10 @@
         "socialiteproviders/laravelpassport": "^4.3",
         "staudenmeir/laravel-adjacency-list": "^1.0",
         "symfony/http-client": "^6.0",
-        "symfony/mailgun-mailer": "^6.0"
+        "symfony/mailgun-mailer": "^6.0",
+        "portabilis/i-educar-reports-package": "*",
+        "portabilis/pre-matricula-digital": "*",
+        "portabilis/i-educar-educacenso-package": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.15",
@@ -144,5 +147,19 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./packages/i-educar-reports-package"
+        },
+        {
+            "type": "path",
+            "url": "./packages/pre-matricula-digital"
+        },
+        {
+            "type": "path",
+            "url": "./packages/i-educar-educacenso-package"
+        }
+    ]
 }
